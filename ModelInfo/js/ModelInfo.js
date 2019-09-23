@@ -21,22 +21,26 @@ $(function() {
 		});
 	});
 	$('.update').click(function() {
-		layer.open({
-			type: 2,
-			shadeClose: true,
-			title: false,
-			closeBtn: 0,
-			skin: 'mylayer',
-			area: ['500px', '400px'],
-			content: ['UpdateModelInfo.html?value=' + modelId, 'no'], //这里content是一个普通的String
-			end: function() {
-				location.reload();
-			}
-		});
+		if (modelId != ''){
+			layer.open({
+				type: 2,
+				shadeClose: true,
+				title: false,
+				closeBtn: 0,
+				skin: 'mylayer',
+				area: ['500px', '400px'],
+				content: ['UpdateModelInfo.html?value=' + modelId, 'no'], //这里content是一个普通的String
+				end: function() {
+					location.reload();
+				}
+			});
+		} else {
+			alert("请选择一个功能模块");
+		}
 	});
 	$('.delete').click(function() {
 		if (modelId == 0) {
-			alert('请选择一个功能模块1');
+			alert('请选择一个功能模块');
 		} else {
 			deleteModelInfo();
 		}
