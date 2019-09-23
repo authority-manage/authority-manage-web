@@ -7,17 +7,17 @@ $(function() {
 	$('.AddStaff').off('click').on('click', function() {
 		addStaff();
 	});
-	$('.user-page').off('click').on('click',function(){
-		window.location.href='../OperatorRightsManagement/OperatorRightsManagement.html'
+	$('.user-page').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
 	});
-	$('.model-page').off('click').on('click',function(){
-		window.location.href='../ModelInfo/ModelInfo.html'
+	$('.model-page').off('click').on('click', function() {
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click',function(){
-		window.location.href='../roleInfoManagement/rolePrivileges.html'
+	$('.role-page').off('click').on('click', function() {
+		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click',function(){
-		window.location.href='../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
+	$('.group-page').off('click').on('click', function() {
+		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
 	$('.mail').click(function() {
 		alert('暂无功能，待实现');
@@ -58,11 +58,11 @@ var info = {
 		});
 	},
 	rePassWordById: function(userId) {
-	
+
 		var data = {
 			"userId": userId
 		}
-		
+
 		$.ajax({
 			url: 'http://localhost:8888/manage_system/userInfo/updatePwd',
 			contentType: 'application/json;charset=utf-8',
@@ -75,7 +75,7 @@ var info = {
 		});
 	},
 	deleteByUserId: function(userId) {
-		
+
 		var data = {
 			"userId": userId
 		}
@@ -132,7 +132,7 @@ var info = {
 			list: param.list,
 			pageNum: param.pageNum
 		};
-		
+
 		data.list.forEach(function(item, index) {
 			if (item.status == '1') {
 				item.status = '有效';
@@ -155,17 +155,18 @@ var info = {
 			Html.push('    <th>' + item.empName + '</th>');
 			Html.push('    <th>' + item.departmentName + '</th>');
 			Html.push('    <th>' + item.remark + '</th>');
-			Html.push('    <th>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="'+item.userId+'" ></th>');
-			
+			Html.push('    <th>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId +
+				'" ></th>');
+
 			// Html.push('    <th class="user_id" style="display:none;">' + item.userId + '</th>');
 			Html.push('</tr>');
 		});
 		$('.TableContent').html(Html.join(''));
-			
+
 		$('.Inquire').off('click').on('click', function() {
-			
+
 			var userId = $(this).parents('tr').find('th .userId').val();
-			
+
 			viewOperators(userId);
 		});
 
@@ -183,8 +184,8 @@ var info = {
 
 		$('.reset_password_btn').off('click').on('click', function() {
 			var userId = $(this).parents('tr').find('th .userId').val();
-			
-			
+
+
 			if (confirm("是否重置密码")) {
 				info.rePassWordById(userId);
 			}
@@ -194,15 +195,15 @@ var info = {
 			var form = layui.form;
 			form.render('checkbox');
 			form.on('checkbox(Staff)', function(data) {
-			
-			
-			
-				
-				
+
+
+
+
+
 			});
 		});
 		info.Page(data);
-		
+
 	},
 	selectStation: function() {
 		$.ajax({
@@ -211,7 +212,7 @@ var info = {
 			dataType: 'json',
 			type: 'GET',
 			success: function(res) {
-				
+
 				var html = [];
 				html.push('<option>不限</option>');
 				res.data.forEach(function(item) {
@@ -227,24 +228,26 @@ var info = {
 		});
 	},
 	Page: function(data) {
-	
-		layui.use('laypage', function() {
-			var laypage = layui.laypage;
-			//执行一个laypage实例
-			laypage.render({
-				curr: data.pageNum,
-				elem: 'Page',
-				count: data.total,
-				limit: '10',
-				theme: '#1E9FFF',
-				groups: '5',
-				jump: function(item, first) {
-					if (!first) {
-						info.TableDataRequest(item.curr);
+		if (data.pageNum != 1) {
+			layui.use('laypage', function() {
+				var laypage = layui.laypage;
+				//执行一个laypage实例
+				laypage.render({
+					curr: data.pageNum,
+					elem: 'Page',
+					count: data.total,
+					limit: '10',
+					theme: '#1E9FFF',
+					groups: '5',
+					jump: function(item, first) {
+						if (!first) {
+							info.TableDataRequest(item.curr);
+						}
 					}
-				}
+				});
 			});
-		});
+		}
+
 	}
 };
 
@@ -295,7 +298,7 @@ var modificationOfOperators = function(userId) {
 }
 
 var viewOperators = function(userId) {
-	
+
 	layer.open({
 		type: 2,
 		title: false,
