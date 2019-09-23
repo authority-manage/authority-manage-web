@@ -15,6 +15,7 @@ var selectEmp = function() {
 		"empName": null,
 		"departmentId": null,
 	};
+	
 	$.ajax({
 		url: 'http://localhost:8888/manage_system/empInfo/all',
 		data: '',
@@ -76,6 +77,10 @@ var addCtrl = function() {
 		alert('请确认密码');
 		return false;
 	}
+	if(empId==null||empId==""||empId==undefined){
+		alert("请关联员工");
+		return false;
+	}
 	var data = {
 		"userName": userName,
 		"password": password,
@@ -100,9 +105,11 @@ var addCtrl = function() {
 }
 var checkUserName = function() {
 	if ($('#user_name').val() == '') {
-		alert('密码输入不能为空');
+		alert('用户名输入不能为空');
+		$('#user_name').val('');
 	} else if (!$('#user_name').val().match(/^[\u0391-\uFFE5A-Za-z0-9-\s]+$/))  {
 		alert('不能输入特殊符号！');
+		$('#user_name').val('');
 	}
 }
 var checkPassword = function() {
