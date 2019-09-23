@@ -23,7 +23,7 @@ $(document).ready(function(){
 	});
 	//点击事件跳转到日志管理
 	$('#log').click(function(){
-		window.location.href = "../registerPage/login.html";
+		window.location.href = "../OperatorLogManagement/login.html";
 	});
 	
 	//点击事件跳转到日志管理

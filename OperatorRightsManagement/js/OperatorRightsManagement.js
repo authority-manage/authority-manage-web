@@ -138,7 +138,7 @@ $(document).ready(function() {
 			window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
 		}
 		if ($('.active > .fa-cog').parents().is($('.active'))) {
-			window.location.href = "../registerPage/login.html";
+			window.location.href = "../OperatorLogManagement/login.html";
 		}
 		if ($('.active > .fa-envelope').parents().is($('.active'))) {
 			window.location.href = "../OperatorManagement/OperatorManagement.html";
