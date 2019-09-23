@@ -6,6 +6,10 @@ $(document).ready(function() {
 })
 //验证方法
 var register = function() {
+	if($('.InputSize').val() == '' && $('.PasWord').val() == ''){
+		alert("！请输入用户名和密码！");
+		return false;
+	}
 	if ($('.InputSize').val() != '123456' && $('.PasWord').val() != '123456') {
 		$.ajax({
 			url: 'http://localhost:8888/manage_system/LogInfo/selectUserPawd',
