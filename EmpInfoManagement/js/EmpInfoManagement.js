@@ -70,7 +70,6 @@ var info = {
 		});
 		info.TableDataRequest(1);
 		// info.TableDrawing();
-
 		$('.MenuList li').off('click').on('click', function() {
 			$('.MenuList li').removeClass('active');
 			$(this).addClass('active');
@@ -194,15 +193,17 @@ var info = {
 				}
 			});
 		});
-		info.Page(data);
+
+			info.Page(data);//分页
+
 	},
 
 
 	Page: function(data) {
 		layui.use('laypage', function() {
 			var laypage = layui.laypage;
-
 			//执行一个laypage实例
+					if(data.total>10){
 			laypage.render({
 				elem: 'Page' //注意，这里的 test1 是 ID，不用加 # 号
 					,
@@ -218,6 +219,7 @@ var info = {
 					}
 				}
 			});
+					}
 			$('.deleteEmp').click(function() {
 				deleteEmpInfo(this);
 			})

@@ -72,6 +72,19 @@ var addSuperiorDepartment = function(){
 	var tel = $("#tel").val();
 	var address = $("#address").val();
 	var remark = $("#remark").val();
+	
+	if (!departmentName) {
+		alert("部门名称不能为空");
+		return false;
+	}
+	if (!tel) {
+		alert("电话不能为空");
+		return false;
+	}
+	if (!address) {
+		alert("地址不能为空");
+		return false;
+	}
 
 	var data = {
 		'parentId':parentId,

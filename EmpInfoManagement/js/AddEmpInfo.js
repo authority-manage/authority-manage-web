@@ -113,6 +113,7 @@ var addEmpInfo = function() {
 			success(res) {
 				if (res.msg == '编号重复') {
 					alert('编号重复！');
+					console.log(res);
 				} else {
 					alert('添加成功！');
 					var index = parent.layer.getFrameIndex(window.name);
