@@ -28,7 +28,7 @@ $(function() {
 		window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
 	})
 	$('#login').click(function() {
-		window.location.href = "../registerPage/login.html";
+		window.location.href = "../OperatorLogManagement/login.html";
 	})
 	$("#Operator").click(function() {
 		window.location.href = "../OperatorManagement/OperatorManagement.html";

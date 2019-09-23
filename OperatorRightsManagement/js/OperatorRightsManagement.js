@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	selectDepartmentNameAndEmpNameLists();
 	//权限管理页面跳转部分
-
+	$('.mail').click(function() {
+		alert('暂无功能，待实现');
+	});
 	$('.user-page').off('click').on('click', function() {
 		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
 	});
@@ -15,7 +17,13 @@ $(document).ready(function() {
 		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
 
-
+	$('.logInAndOut').click(function() {
+		var out = confirm('是否确认注销？');
+		if (out) {
+			window.location.href = "../registerPage.html";
+			alert('注销成功！');
+		}
+	});
 
 	//查看权限
 	$('.leftMenu .BottomMag .FunctionMenu').off('click').on('click', function() {
@@ -138,7 +146,7 @@ $(document).ready(function() {
 			window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
 		}
 		if ($('.active > .fa-cog').parents().is($('.active'))) {
-			window.location.href = "../registerPage/login.html";
+			window.location.href = "../OperatorLogManagement/login.html";
 		}
 		if ($('.active > .fa-envelope').parents().is($('.active'))) {
 			window.location.href = "../OperatorManagement/OperatorManagement.html";
@@ -157,20 +165,20 @@ var saveOperatorModel = function(userId) {
 	var integer = 11;
 	$('.operator-role-list :checkbox').each(function() {
 		console.log(str.length);
-		
+
 		if ($(this).prop('checked') == true) {
 			str = str + '1';
 		} else {
 			str = str + '0';
 		}
 		if (str.length == integer) {
-			
+
 			integer += 20;
 			str += "000000000";
 			modelId += $(this).parent().find('.modelId').val() + ',';
 		}
 
-		
+
 
 		// 	
 
@@ -214,10 +222,10 @@ var openOperatorRoleList = function(userId) {
 	var btnElement = document.getElementById("addBtn");
 	btnElement.innerHTML = '保存';
 	var element = document.getElementById("TableList");
- // element.style.height = '500px';
- //  element.style.overflow = 'scroll';
-	element.innerHTML =  '<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">'+
-	'<table class="layui-table layui-form operator-role-list"lay-even>' +
+	// element.style.height = '500px';
+	//  element.style.overflow = 'scroll';
+	element.innerHTML = '<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">' +
+		'<table class="layui-table layui-form operator-role-list"lay-even>' +
 		'<colgroup>' +
 		'<col width="6%">' +
 		'<col width="1%">' +
@@ -252,9 +260,9 @@ var openOperatorRoleList = function(userId) {
 		'<th>...</th>' +
 		'</tr>' +
 		'</thead>' +
-		'<tbody class="TableContent  operator-role-list-body" >'+
+		'<tbody class="TableContent  operator-role-list-body" >' +
 		'</tbody>' +
-		'</table>'+
+		'</table>' +
 		'</div>';
 	// element.style.height = 'auto';
 	getModelTreeData(userId);
@@ -362,9 +370,9 @@ var openRolePage = function(userId) {
 	var element = document.getElementById("TableList");
 	element.style.overflow = '';
 
-	element.innerHTML = 
-	 '<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">'+
-	'<table class="layui-table layui-form role-list" lay-even>' +
+	element.innerHTML =
+		'<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">' +
+		'<table class="layui-table layui-form role-list" lay-even>' +
 		'<colgroup>' +
 		'<col width="2%">' +
 		'<col width="15%">' +
@@ -382,7 +390,7 @@ var openRolePage = function(userId) {
 		'</thead>' +
 		'<tbody class="TableContent role-list-body">' +
 		'</tbody>' +
-		'</table>'+'</div>';
+		'</table>' + '</div>';
 	getRoleIdByUserId(userId, 'role');
 	element.style.height = 'auto';
 
@@ -395,8 +403,8 @@ var openGroupPage = function(userId) {
 
 
 	element.innerHTML =
-	 '<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">'+
-	 '<table class="layui-table layui-form group-list" lay-even>' +
+		'<div id="hd" scrolling="yes" style="width: 1140px;height: 400px; overflow-x:scroll">' +
+		'<table class="layui-table layui-form group-list" lay-even>' +
 		'<colgroup>' +
 		'<col width="2%">' +
 		'<col width="20%">' +
@@ -414,8 +422,8 @@ var openGroupPage = function(userId) {
 		'</thead>' +
 		'<tbody class="TableContent group-list-body">' +
 		'</tbody>' +
-		'</table>'+'</div>';
-		
+		'</table>' + '</div>';
+
 	getRoleIdByUserId(userId, 'group');
 
 	element.style.height = 'auto';

@@ -44,7 +44,7 @@ var info = {
 				window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
 			}
 			if ($('.active > .fa-cog').parents().is($('.active'))) {
-				window.location.href = "../registerPage/login.html";
+				window.location.href = "../OperatorLogManagement/login.html";
 			}
 			if ($('.active > .fa-file-text-o').parents().is($('.active'))) {
 				window.location.href = "../ModelInfo/ModelInfo.html";
