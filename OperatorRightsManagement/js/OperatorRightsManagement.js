@@ -475,7 +475,8 @@ var selectDepartmentNameAndEmpNameLists = function() {
 
 				$('.departmentClick').click(function() {
 					var departmentId = $(this).find('.departmentA').val();
-					alert(departmentId);
+					
+					
 				});
 				$('.user-name-click').click(function() {
 					var userId = $(this).find('.user-name').val();
@@ -713,7 +714,10 @@ var openAddGroupPage = function(userId) {
 
 			$('.selectGroupButton').off('click').on('click', function() {
 				var groupName = $('.choise-group-name').val();
-
+				if(groupName==""){
+					alert('请输入管理组名')
+					return false;
+				}
 				selectGroupInfoByGroupNameOnSelectButton(groupName);
 			});
 		}
@@ -793,7 +797,10 @@ var openAddRolePage = function(userId) {
 			});
 			$('.selectRoleInfoButton').off('click').on('click', function() {
 				var roleName = $('.choise-role-name').val();
-
+				if(roleName==""){
+					alert('请输入角色名');
+					return false;
+				}
 				selectRoleInfoByRoleNameOnSelectButton(roleName);
 			});
 		}
