@@ -23,16 +23,7 @@ $(function() {
 				updateModelInfo(value);
 			}
 		}
-
 	})
-
-
-
-
-
-
-
-
 });
 var updateModelInfo = function(value) {
 	var modelName = $('#modelName').val();

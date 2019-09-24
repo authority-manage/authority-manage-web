@@ -4,8 +4,11 @@ $(function() {
 			selectRoleJurisdiction(roleId);
 			selectRoleIdAttribute(roleId)
 			$('.ok').click(function() {
+				if($('.role-user-name').val()==''){
+					alert('角色名不可为空')
+				}else{
 				rolePrivilegesAdd(roleId)
-				
+				}
 			})
 			$('.exit').click(function() {
 				var index = parent.layer.getFrameIndex(window.name);
