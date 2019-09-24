@@ -652,7 +652,7 @@ var openAddGroupPage = function(userId) {
 			'<div class="layui-form-item layui-inline">' +
 			' <label class="layui-form-label">组名:</label>' +
 			' <div class="layui-input-block">' +
-			'  <input type="text" name="title" required placeholder="请输入管理组名" autocomplete="off" class="layui-input choise-group-name"/>' +
+			'  <input type="text" name="title" required placeholder="请输入管理组名" autocomplete="off" class="layui-input" id="inputName"/>' +
 			' </div>' +
 			' </div>' +
 			'<div class="layui-form-item layui-inline selectGroupInfoButton-wapper">' +
@@ -713,7 +713,7 @@ var openAddGroupPage = function(userId) {
 
 
 			$('.selectGroupButton').off('click').on('click', function() {
-				var groupName = $('.choise-group-name').val();
+				var groupName = $('#inputName').val();
 				if(groupName==""){
 					alert('请输入管理组名')
 					return false;
@@ -741,7 +741,7 @@ var openAddRolePage = function(userId) {
 			'<div class="layui-form-item layui-inline">' +
 			' <label class="layui-form-label">角色名:</label>' +
 			' <div class="layui-input-block">' +
-			'  <input type="text" name="title" required placeholder="请输入角色名" autocomplete="off" class="layui-input choise-role-name"/>' +
+			'  <input type="text" name="title" required placeholder="请输入角色名" autocomplete="off" class="layui-input" id="roleNameInput"/>' +
 			' </div>' +
 			' </div>' +
 			'<div class="layui-form-item layui-inline selectRoleInfoButton-wapper">' +
@@ -796,7 +796,7 @@ var openAddRolePage = function(userId) {
 				addUserRoleInfo(userId, roleId, "add");
 			});
 			$('.selectRoleInfoButton').off('click').on('click', function() {
-				var roleName = $('.choise-role-name').val();
+				var roleName = $('#roleNameInput').val();
 				if(roleName==""){
 					alert('请输入角色名');
 					return false;
@@ -819,7 +819,7 @@ var selectRoleInfoByRoleNameOnSelectButton = function(roleName) {
 
 			if (res.msg == '操作成功') {
 				if (res.data && res.data.length != 0) {
-					var Html = tableDrawingRoleInfo(res.data);
+					var Html = tableDrawingRoleInfo(res.data,"roleAdd");
 					$('.list').html(Html.join(''));
 					checkBoxRefresh();
 				}

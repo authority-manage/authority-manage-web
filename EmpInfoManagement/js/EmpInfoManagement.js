@@ -121,6 +121,7 @@ var info = {
 	},
 	//表格会绘制
 	TableDrawing: function(data) {
+		console.log(data);
 		var Html = [];
 		var data = {
 			total: data.total,
@@ -261,7 +262,7 @@ var selectAllDepartMentName = function() {
 			var Html = [];
 			Html.push('<option value="0">不限</option>');
 			res.data.forEach(function(item, index) {
-				console.log(item.departmentName);
+			
 				// if(item.parentId!='0'){
 					Html.push('<option value = "' + item.departmentId + '">' + item.departmentName + '</option>');
 				// }
