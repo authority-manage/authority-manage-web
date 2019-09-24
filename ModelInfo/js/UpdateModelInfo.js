@@ -43,6 +43,7 @@ var updateModelInfo = function(value) {
 			alert('修改成功！');
 			var index = parent.layer.getFrameIndex(window.name);
 			parent.layer.close(index);
+			parent.location.reload();
 		}
 	});
 

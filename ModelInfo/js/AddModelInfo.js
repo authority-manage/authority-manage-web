@@ -14,29 +14,25 @@ $(function() {
 	})
 	$('#ok').click(function() {
 		if ($('#modelName').val() == '') {
-		alert('请填写模块名');
+			alert('请填写模块名');
 		} else {
 			addModelInfo();
 		}
 
 	})
-
-
-
-
-
-
-
-
 });
 var addModelInfo = function() {
+	var modelSelectText = $("#selectModelId option:selected").text();		// 选中下拉框的名字
 	var modelName = $('#modelName').val();
 	var parentId = $('#selectModelId').val();
+	if (modelName == modelSelectText){
+		alert("模块名字冲突");
+		return false;
+	}
 	var data={
 		'modelName':modelName,
 		'parentId':parentId
 	};
-	
 	$.ajax({
 		url:'http://localhost:8888/manage_system/modelInfo/insertModelInfo',
 		data:data,
@@ -46,6 +42,7 @@ var addModelInfo = function() {
 			alert('添加成功！');
 			var index = parent.layer.getFrameIndex(window.name);
 			parent.layer.close(index);
+			parent.location.reload();
 		}
 	});
 

@@ -39,10 +39,10 @@ $(function() {
 							 var menuAll = "";
 							 for(var i=0;i<obj.length;i++){
 							    if(obj[i].checked!=""){ //取到对象数组后，我们来循环检测它是不是被选中
-														menuAll+='1';  //如果选中，将value添加到变量s中  
-													 }else{
-														menuAll+='0';
-													 }
+									menuAll+='1';  //如果选中，将value添加到变量s中  
+								}else{
+									menuAll+='0';
+								}
 							 }
 							var data = {
 								'authorization': menuAll,
@@ -89,12 +89,6 @@ $(function() {
 					}
 				})
 			}
-
-
-
-
-
-
 
 			var selectRoleJurisdiction = function(roleId) {
 
