@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 //跳转页面查询返回值
 var selectBydepartmentId = function() {
-	
+
 	$.ajax({
 		url: 'http://localhost:8888/manage_system/department/selectByDepartmentId',
 		data: {
@@ -49,7 +49,7 @@ var selectBydepartmentId = function() {
 					$("#tel").val(item.tel);
 					$("#address").val(item.address);
 					$("#remark").val(item.remark);
-				
+
 				});
 			}
 		}
@@ -64,7 +64,7 @@ var downMenuReturnSuperiorDepartment = function() {
 		dataType: 'json',
 		type: 'GET',
 		success(res) {
-		
+
 			var Html = [];
 			if (res) {
 				Html.push('<option value="0">' + '选为父级Id' + '</option>');
@@ -86,7 +86,7 @@ var downMenuReturnEmpName = function() {
 		dataType: 'json',
 		type: 'GET',
 		success(res) {
-			
+
 			var Html = [];
 			if (res) {
 				res.forEach(function(item, index) {
@@ -101,6 +101,9 @@ var downMenuReturnEmpName = function() {
 
 //修改
 var updateDepartmentInfoByDepartmentId = function(param) {
+	if ($('#superiorDepartment option:selected').val() == null) {
+		$('#superiorDepartment').val(0);
+	}
 	var data = {
 		"departmentId": departmentId,
 		"parentId": $('#superiorDepartment option:selected').val(),
@@ -143,9 +146,6 @@ var updateDepartmentInfoByDepartmentId = function(param) {
 			} else {
 				alter("失败了呀啊");
 			}
-
-
-
 		},
 		error(e) {
 			alert('修改失败！');
@@ -198,36 +198,7 @@ var layuiAddSelectBtn = function(param) {
 			// }
 		});
 		treeReturnSuperiorDepartment();
-		$(document).on('click', 'li', function() {
-			var departmentId1 = $(this).attr("value");
-			
-			$.ajax({
-				url: 'http://localhost:8888/manage_system/department/checkSon',
-				data: {
-					'departmentId': departmentId1,
-					'departmentId1':departmentId
-				},
-				dataType: 'json',
-				type: 'GET',
-				success(res) {
-					console.log(res.code);
-					
-					if (res.code != 88 ) {
-						layer.msg('成功了');
-						$('#superiorDepartment').val(departmentId1);
-						console.log($('#superiorDepartment').val());
-						return false;
-						
-					} else {
-						layer.msg('不能选择自身的子集！');
 
-					}
-				}
-			});
-
-
-
-		});
 	});
 }
 
@@ -261,6 +232,36 @@ var treeReturnSuperiorDepartment = function() {
 				toggle: function() {
 					// console.log(1111);
 				}
+			});
+			$(document).on('click', 'li', function() {
+				var departmentId1 = $(this).attr("value");
+
+				$.ajax({
+					url: 'http://localhost:8888/manage_system/department/checkSon',
+					data: {
+						'departmentId': departmentId1,
+						'departmentId1': departmentId
+					},
+					dataType: 'json',
+					type: 'GET',
+					success(res) {
+						console.log(res.code);
+						if (departmentId != departmentId1) {
+							if (res.code != 88) {
+
+								layer.msg('成功了');
+								$('#superiorDepartment').val(departmentId1);
+								console.log($('#superiorDepartment').val());
+
+							} else {
+								layer.msg('选取失败！');
+							}
+						}else{
+							layer.msg('自己上自己？');
+						}
+					}
+				});
+				return false;
 			});
 		},
 	});
