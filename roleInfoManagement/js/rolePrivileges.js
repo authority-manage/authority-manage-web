@@ -597,8 +597,10 @@ var selectRoleAll = function() {
 			$('.role-id-input-privileges').hide();
 			var Html = [];
 			res.forEach(function(item, index) {
+				if(item.roleName!=''){
 				Html.push('<ul class ="role-name-id-ul"><li ><span class="role-name" value="' + item.roleId + '">' + item.roleName +
 					'</span><input type="text" class="input-role-id" value=' + item.roleId + '> </li> </ul>');
+					}
 			})
 			$('.role-name-span').html(Html.join(''));
 			$('.input-role-id').hide();

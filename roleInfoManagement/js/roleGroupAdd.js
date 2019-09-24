@@ -4,6 +4,7 @@
 		groupRoleselect();
 	})
 	$('.addRoleUser').click(function() {
+		
 		roleGroupAdd();
 
 	})
