@@ -104,11 +104,17 @@ var addCtrl = function() {
 	});
 }
 var checkUserName = function() {
-	if ($('#user_name').val() == '') {
+		var name = $('#user_name').val();
+	if (name == '') {
 		alert('用户名输入不能为空');
 		$('#user_name').val('');
-	} else if (!$('#user_name').val().match(/^[\u0391-\uFFE5A-Za-z0-9-\s]+$/))  {
+	} else if (!name.match(/^[\u0391-\uFFE5A-Za-z0-9-\s]+$/))  {
 		alert('不能输入特殊符号！');
+		$('#user_name').val('');
+	}
+	var reg =/[^\x00-\xff]/ig;
+	if(reg.test(name)){
+		alert('不允许输入汉字！请输入半角字符');
 		$('#user_name').val('');
 	}
 }

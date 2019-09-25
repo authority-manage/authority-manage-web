@@ -18,7 +18,7 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// selectByNumNameDepartmentId();
 	$('#select').click(function() {
 		info.TableDataRequest(1);
@@ -35,19 +35,19 @@ $(function() {
 	})
 	//权限管理页面跳转部分
 	$("#Rights").click(function() {
-		window.location.href='../ModelInfo/ModelInfo.html'
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.user-page').off('click').on('click',function(){
-		window.location.href='../OperatorRightsManagement/OperatorRightsManagement.html'
+	$('.user-page').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
 	});
-	$('.model-page').off('click').on('click',function(){
-		window.location.href='../ModelInfo/ModelInfo.html'
+	$('.model-page').off('click').on('click', function() {
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click',function(){
-		window.location.href='../roleInfoManagement/rolePrivileges.html'
+	$('.role-page').off('click').on('click', function() {
+		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click',function(){
-		window.location.href='../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
+	$('.group-page').off('click').on('click', function() {
+		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
 	$('.mail').click(function() {
 		alert('暂无功能，待实现');
@@ -64,13 +64,12 @@ var info = {
 	//页面主方法
 	init: function() {
 		selectAllDepartMentName();
-		layui.use('form', function () {
+		layui.use('form', function() {
 			var form = layui.form;
 			form.render('select');
 		});
 		info.TableDataRequest(1);
 		// info.TableDrawing();
-
 		$('.MenuList li').off('click').on('click', function() {
 			$('.MenuList li').removeClass('active');
 			$(this).addClass('active');
@@ -110,7 +109,7 @@ var info = {
 				Type: 'GET',
 				success: function(res) {
 					if (res || res.data !== null) {
-						console.log(res.data);
+
 						info.TableDrawing(res.data);
 					}
 				},
@@ -122,12 +121,16 @@ var info = {
 	},
 	//表格会绘制
 	TableDrawing: function(data) {
+		console.log(data);
 		var Html = [];
 		var data = {
 			total: data.total,
 			list: data.list,
 			pageNum: data.pageNum
 		};
+
+
+
 		Html.push("<tr>");
 		Html.push('<th pane><input name="All" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"></th>');
 		Html.push('<th>序号</th>');
@@ -163,11 +166,10 @@ var info = {
 			}
 			if (item.sex == 1) {
 				Html.push('<td class="sex">男</td>');
-			}
-			console.log(item.isDel);
-			if(item.isDel == 0){
-			Html.push('<td class="departmentName" value = "' + item.departmentId + '">' + item.departmentName + '</td>');
-			}else{
+			};
+			if (item.isDel == 0) {
+				Html.push('<td class="departmentName" value = "' + item.departmentId + '">' + item.departmentName + '</td>');
+			} else {
 				Html.push('<td class="departmentName" value = "' + item.departmentId + '">' + '当前油站已被删除' + '</td>');
 			}
 			Html.push('<td class="job">' + item.job + '</td>');
@@ -184,40 +186,40 @@ var info = {
 			var form = layui.form;
 			form.render('checkbox');
 			form.on('checkbox(Staff)', function(data) {
-				console.log(data);
-				console.log(data.elem); //得到checkbox原始DOM对象
-				console.log(data.elem.checked); //是否被选中，true或者false
-				console.log(data.value); //复选框value值，也可以通过data.elem.value得到
-				console.log(data.othis); //得到美化后的DOM对象
+
+				//得到美化后的DOM对象
 				if (data.value == 'all') {
-					console.log('全选');
+
 				}
 			});
 		});
-		info.Page(data);
+	
+	info.Page(data); //分页
+		
 	},
 
 
 	Page: function(data) {
 		layui.use('laypage', function() {
 			var laypage = layui.laypage;
-
 			//执行一个laypage实例
-			laypage.render({
-				elem: 'Page' //注意，这里的 test1 是 ID，不用加 # 号
-					,
-				count: data.total //数据总数，从服务端得到
-					,
-				limit: '10',
-				theme: '#1E9FFF',
-				curr: data.pageNum,
-				groups: '5',
-				jump: function(item, first) {
-					if (!first) {
-						info.TableDataRequest(item.curr)
+				if(data.total>10){
+				laypage.render({
+					elem: 'Page' //注意，这里的 test1 是 ID，不用加 # 号
+						,
+					count: data.total //数据总数，从服务端得到
+						,
+					limit: '10',
+					theme: '#1E9FFF',
+					curr: data.pageNum,
+					groups: '5',
+					jump: function(item, first) {
+						if (!first) {
+							info.TableDataRequest(item.curr)
+						}
 					}
-				}
-			});
+				});
+			}
 			$('.deleteEmp').click(function() {
 				deleteEmpInfo(this);
 			})
@@ -232,14 +234,8 @@ var info = {
 }
 
 
+
 var dateFormat = function(time) {
-	var date = new Date(time);
-	var year = date.getFullYear();
-	var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-	var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-	return year + "-" + month + "-" + day;
-}
-var dateFormat2 = function(time) {
 	var date = new Date(time);
 	var year = date.getFullYear();
 	var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
@@ -259,26 +255,26 @@ var selectAllDepartMentName = function() {
 			var Html = [];
 			Html.push('<option value="0">不限</option>');
 			res.data.forEach(function(item, index) {
-				console.log(item.departmentName);
+
 				// if(item.parentId!='0'){
-					Html.push('<option value = "' + item.departmentId + '">' + item.departmentName + '</option>');
+				Html.push('<option value = "' + item.departmentId + '">' + item.departmentName + '</option>');
 				// }
 			});
-		console.log(Html);
+
 			$('#departmentId').html(Html.join());
-			layui.use('form', function () {
+			layui.use('form', function() {
 				var form = layui.form;
 				form.render('select');
 			});
 			layui.use('element', function() {
-	        var element = layui.element;
-	        element.init();
-			element.render();
-	    });
+				var element = layui.element;
+				element.init();
+				element.render();
+			});
 		}
-	
+
 	});
-	
+
 
 }
 
@@ -286,10 +282,12 @@ var deleteEmpInfo = function(param) {
 	var check = confirm('是否确认删除');
 	if (check) {
 		var empId = $(param).parents('tr').children('td').children('.empId').val();
-		
+
 		$.ajax({
 			url: 'http://localhost:8888/manage_system/empInfo/updateIsDel',
-			data:{"empId":empId},
+			data: {
+				"empId": empId
+			},
 			dataType: 'json',
 			type: 'GET',
 			success(res) {
@@ -322,7 +320,7 @@ var updateEmpInfo = function(param) {
 var EmpInfo = function(param) {
 	var empId = $(param).parents('tr').children('td').children('.empId').val();
 	layer.open({
-		id:'EmpInfo',
+		id: 'EmpInfo',
 		type: 2,
 		shadeClose: true,
 		title: false,

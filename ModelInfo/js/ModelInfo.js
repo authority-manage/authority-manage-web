@@ -15,28 +15,32 @@ $(function() {
 			skin: 'mylayer',
 			area: ['500px', '400px'],
 			content: ['AddModelInfo.html?value=' + modelId, 'no'], //这里content是一个普通的String
-			end: function() {
-				location.reload();
-			}
+			// end: function() {
+			// 	location.reload();
+			// }
 		});
 	});
 	$('.update').click(function() {
-		layer.open({
-			type: 2,
-			shadeClose: true,
-			title: false,
-			closeBtn: 0,
-			skin: 'mylayer',
-			area: ['500px', '400px'],
-			content: ['UpdateModelInfo.html?value=' + modelId, 'no'], //这里content是一个普通的String
-			end: function() {
-				location.reload();
-			}
-		});
+		if (modelId != ''){
+			layer.open({
+				type: 2,
+				shadeClose: true,
+				title: false,
+				closeBtn: 0,
+				skin: 'mylayer',
+				area: ['500px', '400px'],
+				content: ['UpdateModelInfo.html?value=' + modelId, 'no'], //这里content是一个普通的String
+				// end: function() {
+				// 	location.reload();
+				// }
+			});
+		} else {
+			alert("请选择一个功能模块");
+		}
 	});
 	$('.delete').click(function() {
 		if (modelId == 0) {
-			alert('请选择一个功能模块1');
+			alert('请选择一个功能模块');
 		} else {
 			deleteModelInfo();
 		}
@@ -78,20 +82,21 @@ $(function() {
 	});
 });
 var deleteModelInfo = function() {
-	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/deleteModelInfo',
-		data: {
-			'modelId': modelId
-		},
-		dataType: 'json',
-		type: "POST",
-		success(res) {
-			alert('删除成功！');
-			window.location.reload();
-		}
-	});
-
-
+	var Reconfirm = confirm("是否删除");
+	if (Reconfirm == true){
+		$.ajax({
+			url: 'http://localhost:8888/manage_system/modelInfo/deleteModelInfo',
+			data: {
+				'modelId': modelId
+			},
+			dataType: 'json',
+			type: "POST",
+			success(res) {
+				alert('删除成功！');
+				window.location.reload();
+			}
+		});
+	}
 }
 var selectAllModelInfoList = function() {
 

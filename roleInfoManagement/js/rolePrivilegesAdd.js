@@ -6,7 +6,6 @@ $(function() {
 		if($('.role-user-name').val()==''){
 			alert('角色名不可为空')
 		}else{
-			aaa();
 			rolePrivilegesAdd();
 			
 			}
@@ -90,11 +89,7 @@ var drawChildren = function(Html, childrenList, index) {
   } 	
   }
   
-  var aaa=function(){
-	  
-	
-	
-  }
+
 
 var rolePrivilegesAdd = function(){
 	var roleUserName= $('.role-user-name').val();

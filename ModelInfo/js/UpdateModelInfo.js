@@ -20,19 +20,14 @@ $(function() {
 			if ($('#selectModelId').val() == value) {
 				alert('亲，不能自己选自己');
 			} else {
-				updateModelInfo(value);
+				if ($('#selectModelId').val() == 0){
+					updateModelInfo(value);
+				} else {
+					checkSon(value);
+				}
 			}
 		}
-
 	})
-
-
-
-
-
-
-
-
 });
 var updateModelInfo = function(value) {
 	var modelName = $('#modelName').val();
@@ -52,6 +47,7 @@ var updateModelInfo = function(value) {
 			alert('修改成功！');
 			var index = parent.layer.getFrameIndex(window.name);
 			parent.layer.close(index);
+			parent.location.reload();
 		}
 	});
 
@@ -85,6 +81,32 @@ var selectAllModelInfo = function(value) {
 				Html.push('<option value="' + item.modelId + '">' + item.modelName + '</option>');
 			});
 			$('#selectModelId').html(Html.join(''));
+		}
+	});
+};
+// 判断不能选择自己的子集
+var checkSon = function(value){
+	// value 是本身ID
+	// parentId是选择上级部门的ID
+	var parentId = $('#selectModelId').val();
+	$.ajax({
+		url: 'http://localhost:8888/manage_system/modelInfo/checkSon',
+		data: {
+			'parentId': parentId,
+			'modelId': value
+		},
+		dataType: 'json',
+		type: 'GET',
+		success(res) {
+			console.log(res.code);
+			if (parentId != value) {
+				if (res.code != 88) {
+					console.log("%c成功了" , "color: red");
+					updateModelInfo(value);
+				} else {
+					alert("不能选择自己的子集！");
+				}
+			}
 		}
 	});
 }
