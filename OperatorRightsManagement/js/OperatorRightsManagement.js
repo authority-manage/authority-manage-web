@@ -463,7 +463,6 @@ var selectDepartmentNameAndEmpNameLists = function() {
 
 				$('.departmentClick').click(function() {
 					var departmentId = $(this).find('.departmentA').val();
-					alert(departmentId);
 				});
 				$('.user-name-click').click(function() {
 					var userId = $(this).find('.user-name').val();
