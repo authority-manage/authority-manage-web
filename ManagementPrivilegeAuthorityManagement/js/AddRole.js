@@ -24,7 +24,7 @@ $(function() {
 var getModel = function() {
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/JGroupModelInfo/selectModelInfo',
+		url: 'http://'+ip+':8888/manage_system/JGroupModelInfo/selectModelInfo',
 		data: {
 			'groupId': 0
 		},
@@ -103,7 +103,7 @@ var addRole = function() {
 			'roleDescription': roleDescription
 		};
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/roleInfo/addRole',
+			url: 'http://'+ip+':8888/manage_system/roleInfo/addRole',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -150,7 +150,7 @@ var addModel = function(roleId) {
 	console.log(data);
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/JRoleModelInfo/insertRoleModel',
+		url: 'http://'+ip+':8888/manage_system/JRoleModelInfo/insertRoleModel',
 		data: data,
 		dataType: 'json',
 		type: 'POST',

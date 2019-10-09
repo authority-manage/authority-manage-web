@@ -38,7 +38,7 @@ var roleGroupAdd = function() {
 		var userId = val.value;
 		//第一个参数表示索引下标，第二个参数表示当前索引元素
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateGroupinfoRoleId',
+			url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateGroupinfoRoleId',
 			data: {
 			'roleId': roleId ,
 			'groupId': userId
@@ -71,7 +71,7 @@ if(aaaa=' '){
 }
 	
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleGroupAll',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleGroupAll',
 		data: {
 			'roleId': roleId,
 			'groupName': aaaa

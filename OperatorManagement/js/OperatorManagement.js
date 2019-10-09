@@ -64,7 +64,7 @@ var info = {
 		}
 
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/userInfo/updatePwd',
+			url: 'http://'+ip+':8888/manage_system/userInfo/updatePwd',
 			contentType: 'application/json;charset=utf-8',
 			data: data,
 			dataType: 'json',
@@ -80,7 +80,7 @@ var info = {
 			"userId": userId
 		}
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/userInfo/deleteByuserId',
+			url: 'http://'+ip+':8888/manage_system/userInfo/deleteByuserId',
 			contentType: 'application/json;charset=utf-8',
 			data: data,
 			dataType: 'json',
@@ -113,7 +113,7 @@ var info = {
 			"pageSize": 10
 		};
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/userInfo/selectUserInfoLists',
+			url: 'http://'+ip+':8888/manage_system/userInfo/selectUserInfoLists',
 			data: data,
 			dataType: 'json',
 			Type: 'GET',
@@ -204,7 +204,7 @@ var info = {
 	},
 	selectStation: function() {
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentName',
+			url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
 			data: '',
 			dataType: 'json',
 			type: 'GET',

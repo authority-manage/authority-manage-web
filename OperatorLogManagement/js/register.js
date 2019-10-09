@@ -12,7 +12,7 @@ var register = function() {
 	}
 	if ($('.InputSize').val() != '123456' && $('.PasWord').val() != '123456') {
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/LogInfo/selectUserPawd',
+			url: 'http://'+ip+':8888/manage_system/LogInfo/selectUserPawd',
 			data: {},
 			dataType: 'json',
 			type: 'GET',
@@ -32,7 +32,7 @@ var register = function() {
 						id = item.userId;
 						logType = '1';
 						macCode = '登录';
-						masIp = 'localhost';
+						masIp = ''+ip+'';
 						logDescription = '一台-PC';
 					}
 				})
@@ -47,7 +47,7 @@ var register = function() {
 					//进行添加log
 					var myurl = "EmpInfoManagement/EmpInfoManagement.html";
 					$.ajax({
-						url: 'http://localhost:8888/manage_system/LogInfo/insert',
+						url: 'http://'+ip+':8888/manage_system/LogInfo/insert',
 						data: JSON.stringify(data),
 						dataType: "json",
 						type: 'POST',

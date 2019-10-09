@@ -17,14 +17,14 @@ var selectEmp = function() {
 	};
 	
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/all',
+		url: 'http://'+ip+':8888/manage_system/empInfo/all',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
 		success: function(res) {
 			var html = [];
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/userInfo/selectUserInfo',
+				url: 'http://'+ip+':8888/manage_system/userInfo/selectUserInfo',
 				contentType: 'application/json;charset=utf-8',
 				data: data,
 				dataType: 'json',
@@ -89,7 +89,7 @@ var addCtrl = function() {
 		"remark": remark
 	};
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/addUserCtrl',
+		url: 'http://'+ip+':8888/manage_system/userInfo/addUserCtrl',
 		data: JSON.stringify(data),
 		contentType: 'application/json;charset=utf-8',
 		dataType: 'json',

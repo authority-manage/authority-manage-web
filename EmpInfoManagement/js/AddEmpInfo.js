@@ -105,7 +105,7 @@ var addEmpInfo = function() {
 			'isDel': '0'
 		};
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/empInfo/addEmpInfo',
+			url: 'http://'+ip+':8888/manage_system/empInfo/addEmpInfo',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -136,7 +136,7 @@ var selectDepartmentId = function() {
 		10 ? "0" : "") + now.getDate();
 	$('#empDate').val(time);
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentNameAll',
+		url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentNameAll',
 		data: '',
 		dataType: 'json',
 		type: 'GET',

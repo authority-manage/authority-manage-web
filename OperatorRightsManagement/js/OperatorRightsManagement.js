@@ -190,7 +190,7 @@ var saveOperatorModel = function(userId) {
 
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/JUserModelInfo/updateJUserModelInfoByUserId',
+		url: 'http://'+ip+':8888/manage_system/JUserModelInfo/updateJUserModelInfoByUserId',
 		data: {
 			"userId": userId,
 			"modelId": modelId,
@@ -264,7 +264,7 @@ var getModelTreeData = function(userId) {
 
 	$.ajax({
 
-		url: 'http://localhost:8888/manage_system/modelTree/selectModelTree',
+		url: 'http://'+ip+':8888/manage_system/modelTree/selectModelTree',
 		data: {
 			"userId": userId
 		},
@@ -422,7 +422,7 @@ var openGroupPage = function(userId) {
 //左侧树形列表--待完善
 var selectDepartmentNameAndEmpNameLists = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/leftTree/selectLeftTree',
+		url: 'http://'+ip+':8888/manage_system/leftTree/selectLeftTree',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -517,7 +517,7 @@ var selectGroupInfoNoAddGroupInfo = function(userId) {
 		"userId": userId
 	}
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/selectGroupnfoNoAddGroupInfo',
+		url: 'http://'+ip+':8888/manage_system/groupInfo/selectGroupnfoNoAddGroupInfo',
 		data: data,
 		dataType: 'json',
 		type: 'GET',
@@ -561,7 +561,7 @@ var selectGroupInfoNoAddGroupInfo = function(userId) {
 
 var getRoleIdByUserId = function(userId, type) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/selectUserByUserId',
+		url: 'http://'+ip+':8888/manage_system/userInfo/selectUserByUserId',
 		data: {
 			"userId": userId
 		},
@@ -585,7 +585,7 @@ var selectNoAddRoleInfoList = function(userId) {
 		"userId": userId
 	}
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/roleInfo/selectRoleInfoNoAddRoleInfo',
+		url: 'http://'+ip+':8888/manage_system/roleInfo/selectRoleInfoNoAddRoleInfo',
 		data: data,
 		dataType: 'json',
 		type: 'GET',
@@ -796,7 +796,7 @@ var openAddRolePage = function(userId) {
 
 var selectRoleInfoByRoleNameOnSelectButton = function(roleName) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/roleInfo/selectRoleInfoByRoleName',
+		url: 'http://'+ip+':8888/manage_system/roleInfo/selectRoleInfoByRoleName',
 		data: {
 			"roleName": roleName
 		},
@@ -821,7 +821,7 @@ var selectRoleInfoByRoleNameOnSelectButton = function(roleName) {
 var selectGroupInfoByGroupNameOnSelectButton = function(groupName) {
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/selectGroupInfoByGroupName',
+		url: 'http://'+ip+':8888/manage_system/groupInfo/selectGroupInfoByGroupName',
 		data: {
 			"groupName": groupName
 		},
@@ -845,7 +845,7 @@ var selectGroupInfoByGroupNameOnSelectButton = function(groupName) {
 //group
 var addUserGroupInfo = function(userId, groupId, operator) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/updateUserGroupIdByUserId',
+		url: 'http://'+ip+':8888/manage_system/userInfo/updateUserGroupIdByUserId',
 		data: {
 
 			"userId": userId,
@@ -875,7 +875,7 @@ var addUserGroupInfo = function(userId, groupId, operator) {
 //role
 var addUserRoleInfo = function(userId, roleId, operator) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/updateUserRoleInfoByUserId',
+		url: 'http://'+ip+':8888/manage_system/userInfo/updateUserRoleInfoByUserId',
 		data: {
 
 			"userId": userId,
@@ -905,7 +905,7 @@ var addUserRoleInfo = function(userId, roleId, operator) {
 var viewUserInfoGroupInfoByGroupId = function(data) {
 	if (data[0].groupId && data[0].groupId != null && data[0].groupId != undefined) {
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/groupInfo/selectGroupInfoByGroupId',
+			url: 'http://'+ip+':8888/manage_system/groupInfo/selectGroupInfoByGroupId',
 			data: {
 				"groupId": data[0].groupId
 			},
@@ -954,7 +954,7 @@ var viewUserInfoGroupInfoByGroupId = function(data) {
 var viewUserInfoRoleInfoByUserId = function(data) {
 	if (data[0].roleId && data[0].roleId != null && data[0].roleId != undefined) {
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/roleInfo/selectRoInfoByUserId',
+			url: 'http://'+ip+':8888/manage_system/roleInfo/selectRoInfoByUserId',
 			data: {
 				"roleId": data[0].roleId
 			},

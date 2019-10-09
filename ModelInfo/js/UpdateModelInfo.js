@@ -39,7 +39,7 @@ var updateModelInfo = function(value) {
 	};
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/updateModelInfo',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/updateModelInfo',
 		data: data,
 		dataType: 'json',
 		type: 'POST',
@@ -56,7 +56,7 @@ var updateModelInfo = function(value) {
 var selectModelInfo = function(value) {
 	var Html = [];
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/selectModelInfo',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/selectModelInfo',
 		data: {
 			'modelId': value
 		},
@@ -71,7 +71,7 @@ var selectModelInfo = function(value) {
 var selectAllModelInfo = function(value) {
 	var Html = [];
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/selectAllModelInfoList',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/selectAllModelInfoList',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -90,7 +90,7 @@ var checkSon = function(value){
 	// parentId是选择上级部门的ID
 	var parentId = $('#selectModelId').val();
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/checkSon',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/checkSon',
 		data: {
 			'parentId': parentId,
 			'modelId': value

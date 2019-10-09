@@ -42,7 +42,7 @@ var addRole = function(groupId) {
 		};
 		console.log(data);
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/groupInfo/updateRoleId',
+			url: 'http://'+ip+':8888/manage_system/groupInfo/updateRoleId',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -57,7 +57,7 @@ var addRole = function(groupId) {
 }
 var getRole = function(value) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectRoleAllByRoleName',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectRoleAllByRoleName',
 		data: {
 			'roleName': $('#roleName').val(),
 			'groupId':value
@@ -101,7 +101,7 @@ var getRole = function(value) {
 }
 var getRoleTwo = function(value) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectRoleAll',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectRoleAll',
 		data: {
 			"groupId":value
 		},

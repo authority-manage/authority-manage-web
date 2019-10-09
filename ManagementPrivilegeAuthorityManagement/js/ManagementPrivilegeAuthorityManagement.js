@@ -45,7 +45,7 @@ $(function() {
 				console.log(checkValue);
 
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/JGroupModelInfo/updateAuthorizationByGroupId',
+					url: 'http://'+ip+':8888/manage_system/JGroupModelInfo/updateAuthorizationByGroupId',
 					data: data,
 					dataType: 'json',
 					type: 'POST',
@@ -101,7 +101,7 @@ $(function() {
 					};
 					console.log(JSON.stringify(data));
 					$.ajax({
-						url: 'http://localhost:8888/manage_system/userInfo/updateByUserIdDelete',
+						url: 'http://'+ip+':8888/manage_system/userInfo/updateByUserIdDelete',
 						data: JSON.stringify(data),
 						dataType: 'json',
 						type: 'POST',
@@ -133,7 +133,7 @@ $(function() {
 					};
 
 					$.ajax({
-						url: 'http://localhost:8888/manage_system/userInfo/updataByGroupIdDelete',
+						url: 'http://'+ip+':8888/manage_system/userInfo/updataByGroupIdDelete',
 						data: JSON.stringify(data),
 						dataType: 'json',
 						type: 'POST',
@@ -309,7 +309,7 @@ $(function() {
 });
 var getALLGroupName = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/selectAllGroupInfo',
+		url: 'http://'+ip+':8888/manage_system/groupInfo/selectAllGroupInfo',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -363,7 +363,7 @@ var getAuthority = function() {
 		$('.exit').show();
 		$('.blue2').hide();
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/JGroupModelInfo/selectModelInfo',
+			url: 'http://'+ip+':8888/manage_system/JGroupModelInfo/selectModelInfo',
 			data: {
 				'groupId': groupId
 			},
@@ -433,7 +433,7 @@ var getRoleTable = function() {
 		$('.blue2').show();
 		buttonId = 2;
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/empInfo/selectRoleAllByGroupId',
+			url: 'http://'+ip+':8888/manage_system/empInfo/selectRoleAllByGroupId',
 			data: {
 				"groupId": groupId
 			},
@@ -487,7 +487,7 @@ var getUser = function(groupId) {
 	$('.blue2').show();
 	buttonId = 1;
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectUser',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectUser',
 		data: {
 			"groupId": groupId
 		},
@@ -546,7 +546,7 @@ var getUser = function(groupId) {
 
 var deleteGroup = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/deleteByPrimaryKey/' + groupId,
+		url: 'http://'+ip+':8888/manage_system/groupInfo/deleteByPrimaryKey/' + groupId,
 		data: '',
 		dataType: 'json',
 		type: 'POST',

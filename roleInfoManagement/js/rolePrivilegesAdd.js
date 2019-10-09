@@ -20,7 +20,7 @@ var HtmlModelId=[];
 var modelNameAll= function(){
 	var index =1;
 	$.ajax({
-	url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
+	url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
 		data: {},
 		dataType: "json",
 		type: 'GET',
@@ -97,7 +97,7 @@ var rolePrivilegesAdd = function(){
 	var data = {'roleName':roleUserName,
 				'roleDescription':roleUserDescribe} 
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/RoleJRoleModel/inseRtrole',
+			url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/inseRtrole',
 			data:JSON.stringify(data),
 			dataType: "json",
 			type: 'POST',
@@ -121,7 +121,7 @@ var rolePrivilegesAdd = function(){
 						  'authorization':menuAll
 					  }
 					$.ajax({
-						url: 'http://localhost:8888/manage_system/RoleJRoleModel/insertRoleModel',
+						url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/insertRoleModel',
 						data:JSON.stringify(data),
 						dataType: "json",
 						type: 'POST',

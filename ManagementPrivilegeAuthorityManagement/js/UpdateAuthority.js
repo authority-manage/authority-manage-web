@@ -26,7 +26,7 @@ var getGroupInfo = function(value) {
 	var Html = [];
 	var arr = new Array();
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/selectByPrimaryKey',
+		url: 'http://'+ip+':8888/manage_system/groupInfo/selectByPrimaryKey',
 		data: {
 			'groupId': value
 		},
@@ -65,7 +65,7 @@ var updateGroupInfo = function(value) {
 		'groupDescription': groupDescription
 	};
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/groupInfo/updateByPrimaryKeySelective',
+		url: 'http://'+ip+':8888/manage_system/groupInfo/updateByPrimaryKeySelective',
 		data: JSON.stringify(data),
 		dataType: 'json',
 		type: 'POST',

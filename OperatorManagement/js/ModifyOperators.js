@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 var selectEmp = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectEmpInfoAll',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectEmpInfoAll',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -37,7 +37,7 @@ var selectOne = function() {
 		"userId": userId
 	};
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/selectOne',
+		url: 'http://'+ip+':8888/manage_system/userInfo/selectOne',
 		data: data,
 		dataType: 'json',
 		type: 'GET',
@@ -84,7 +84,7 @@ var edit_password = function() {
 			return false;
 		}
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/userInfo/updataByUserId',
+			url: 'http://'+ip+':8888/manage_system/userInfo/updataByUserId',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -111,7 +111,7 @@ var checkOldPassword = function() {
 		"userId": userId
 	};
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/checkPassword',
+		url: 'http://'+ip+':8888/manage_system/userInfo/checkPassword',
 		data: data,
 		dataType: 'json',
 		type: 'GET',

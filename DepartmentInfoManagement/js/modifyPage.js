@@ -31,7 +31,7 @@ $(document).ready(function() {
 var selectBydepartmentId = function() {
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/department/selectByDepartmentId',
+		url: 'http://'+ip+':8888/manage_system/department/selectByDepartmentId',
 		data: {
 			'departmentId': departmentId
 		},
@@ -59,7 +59,7 @@ var selectBydepartmentId = function() {
 //返回下拉菜单的上级部门的值
 var downMenuReturnSuperiorDepartment = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/department/selectAll',
+		url: 'http://'+ip+':8888/manage_system/department/selectAll',
 		data: {},
 		dataType: 'json',
 		type: 'GET',
@@ -81,7 +81,7 @@ var downMenuReturnSuperiorDepartment = function() {
 //返回下拉菜单的负责人的值
 var downMenuReturnEmpName = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/empInfoAll',
+		url: 'http://'+ip+':8888/manage_system/empInfo/empInfoAll',
 		data: {},
 		dataType: 'json',
 		type: 'GET',
@@ -132,7 +132,7 @@ var updateDepartmentInfoByDepartmentId = function(param) {
 
 	console.log(data);
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/department/updateByDepartmentId',
+		url: 'http://'+ip+':8888/manage_system/department/updateByDepartmentId',
 		data: JSON.stringify(data),
 		dataType: 'json',
 		type: 'POST',
@@ -205,7 +205,7 @@ var layuiAddSelectBtn = function(param) {
 
 var treeReturnSuperiorDepartment = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/department/selectAllForParentIdDepartmentId',
+		url: 'http://'+ip+':8888/manage_system/department/selectAllForParentIdDepartmentId',
 		data: {},
 		dataType: 'json',
 		type: 'GET',
@@ -237,7 +237,7 @@ var treeReturnSuperiorDepartment = function() {
 				var departmentId1 = $(this).attr("value");
 
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/department/checkSon',
+					url: 'http://'+ip+':8888/manage_system/department/checkSon',
 					data: {
 						'departmentId': departmentId1,
 						'departmentId1': departmentId

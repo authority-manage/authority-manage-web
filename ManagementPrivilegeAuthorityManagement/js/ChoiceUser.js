@@ -40,7 +40,7 @@ var addUser = function(groupId) {
 		};
 		console.log(data);
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/userInfo/updateGroupIdByUserId',
+			url: 'http://'+ip+':8888/manage_system/userInfo/updateGroupIdByUserId',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -56,7 +56,7 @@ var addUser = function(groupId) {
 
 var selectDepartmentId = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentName',
+		url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -76,7 +76,7 @@ var selectDepartmentId = function() {
 }
 var getUser = function(value) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectUserByNameAndUser',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectUserByNameAndUser',
 		data: {
 			'userName': '',
 			'empName': '',
@@ -144,7 +144,7 @@ var getUserBy = function(value) {
 	var empName = $('#empName').val();
 	var departmentId = $('#department').val();
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectUserByNameAndUser',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectUserByNameAndUser',
 		data: {
 			'userName': userName,
 			'empName': empName,

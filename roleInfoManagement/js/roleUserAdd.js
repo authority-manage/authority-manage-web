@@ -25,7 +25,7 @@ $('.addRoleUser').off('click').on('click', function() {
 			var userRoleId = "";
 			console.log(userId);
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleIdRoleUser',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleIdRoleUser',
 				data: {'userId':userId},
 				dataType: 'json',
 				type: 'GET',
@@ -68,7 +68,7 @@ $('.addRoleUser').off('click').on('click', function() {
 					selectUserRole(roleId);
 		
 							$.ajax({
-								url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentName',
+								url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
 								data: '',
 								dataType: 'json',
 								type: 'GET',
@@ -113,7 +113,7 @@ $('.addRoleUser').off('click').on('click', function() {
 								// "pageSize": 10
 							};
 							$.ajax({
-								url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectAddRoleUser',
+								url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectAddRoleUser',
 								data: data,
 								dataType: 'json',
 								Type: 'GET',
@@ -177,7 +177,7 @@ $('.addRoleUser').off('click').on('click', function() {
 						}
 						var updateRoleIdByUserId = function(userId,roleId){
 								$.ajax({
-								url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateUserRoleIdAdd',
+								url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateUserRoleIdAdd',
 								data: {'roleId':roleId,
 										'userId':userId},
 							

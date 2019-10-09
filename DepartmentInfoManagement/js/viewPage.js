@@ -13,7 +13,7 @@ var frequency = 0;
 //通过userId查找userInfo所有数据
 var viewDepartmentInfoByDepartmentId = function(){
 	$.ajax({
-		url:'http://localhost:8888/manage_system/department/selectByDepartmentId',
+		url:'http://'+ip+':8888/manage_system/department/selectByDepartmentId',
 		data :{
 			'departmentId' : departmentId
 		},
@@ -45,7 +45,7 @@ var viewDepartmentInfoByDepartmentId = function(){
 //下拉菜单上级部门的值
 var departmentNameByParentId = function(){
 	$.ajax({
-		url : 'http://localhost:8888/manage_system/department/selectAll',
+		url : 'http://'+ip+':8888/manage_system/department/selectAll',
 		data : {},
 		dataType : 'json',
 		type : 'GET',

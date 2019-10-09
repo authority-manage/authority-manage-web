@@ -165,7 +165,7 @@ var all = function(pagenum){
 	var begin=new Date($("#begin").val()).getTime();
 	var finish =new Date( $("#finish").val()).getTime();
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/LogInfo/all',
+		url: 'http://'+ip+':8888/manage_system/LogInfo/all',
 		data: {'pagesize':10,'pagenum':pagenum,'fromTime':begin,'endTime':finish},
 		dataType: 'json',
 		type: 'GET',
@@ -202,9 +202,9 @@ var all = function(pagenum){
 	// 	var finish =new Date( $("#finish").val())
 	// 	var userName = $(".userName").val()
 	// 	$.ajax({
-	// 		url: 'http://localhost:8888/manage_system/LogInfo/all',
-	// 		// url:'http://localhost:8888/manage_system/LogInfo/selectTime',
-	// 		// url:'http://localhost:8888/manage_system/LogInfo/all',
+	// 		url: 'http://'+ip+':8888/manage_system/LogInfo/all',
+	// 		// url:'http://'+ip+':8888/manage_system/LogInfo/selectTime',
+	// 		// url:'http://'+ip+':8888/manage_system/LogInfo/all',
 	// 		// data:{'pagesize':pagesize,'pagenum':pagenum,'fromTime':begin,'endTime':finish,'userName':userName},
 	// 		data:{'pagesize':10,'pagenum':pagenum,'fromTime':begin,'endTime':finish,'userName':userName},
 	// 		dataType: 'json',
@@ -312,7 +312,7 @@ var all = function(pagenum){
 // 	var finish = $("#finish").val();
 // 	var finishOne = (new Date(finish)).getTime();
 // 	$.ajax({
-// 		url: 'http://localhost:8888/manage_system/log/all',
+// 		url: 'http://'+ip+':8888/manage_system/log/all',
 // 		data: {'pagesize':pagesize,'pagenum':pagenum},
 // 		dataType: 'json',
 // 		type: 'GET',

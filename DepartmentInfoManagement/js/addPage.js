@@ -23,7 +23,7 @@ $(document).ready(function(){
 //返回下拉菜单的上级部门的值(隐藏)
 var downMenuReturnSuperiorDepartment = function(){
 	$.ajax({
-		url : 'http://localhost:8888/manage_system/department/selectAll',
+		url : 'http://'+ip+':8888/manage_system/department/selectAll',
 		data : {},
 		dataType : 'json',
 		type : 'GET',
@@ -45,7 +45,7 @@ var downMenuReturnSuperiorDepartment = function(){
 //返回下拉菜单的负责人的值
 var downMenuReturnEmpName = function(){
 	$.ajax({
-		url:'http://localhost:8888/manage_system/empInfo/empInfoAll',
+		url:'http://'+ip+':8888/manage_system/empInfo/empInfoAll',
 		data :{},
 		dataType: 'json',
 		type: 'GET',
@@ -101,7 +101,7 @@ var addSuperiorDepartment = function(){
 	}
 	
 	$.ajax({
-		url : 'http://localhost:8888/manage_system/department/add',
+		url : 'http://'+ip+':8888/manage_system/department/add',
 		data : JSON.stringify(data),
 		dataType : 'json',
 		type : 'POST',
@@ -173,7 +173,7 @@ var layuiAddSelectBtn = function(param){
 //树状图选择按钮页面
 var treeReturnSuperiorDepartment = function(){
 	$.ajax({
-		url : 'http://localhost:8888/manage_system/department/selectAllForParentIdDepartmentId',
+		url : 'http://'+ip+':8888/manage_system/department/selectAllForParentIdDepartmentId',
 		data : {},
 		dataType : 'json',
 		type : 'GET',

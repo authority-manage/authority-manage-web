@@ -97,7 +97,7 @@ var info = {
 		}
 		if (check) {
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/empInfo/selectByNumNameDepartmentId',
+				url: 'http://'+ip+':8888/manage_system/empInfo/selectByNumNameDepartmentId',
 				data: {
 					'empNum': empNum,
 					'empName': empName,
@@ -247,7 +247,7 @@ var dateFormat = function(time) {
 }
 var selectAllDepartMentName = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentName',
+		url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
 		data: '',
 		dataType: 'json',
 		type: 'GET',
@@ -284,7 +284,7 @@ var deleteEmpInfo = function(param) {
 		var empId = $(param).parents('tr').children('td').children('.empId').val();
 
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/empInfo/updateIsDel',
+			url: 'http://'+ip+':8888/manage_system/empInfo/updateIsDel',
 			data: {
 				"empId": empId
 			},

@@ -85,7 +85,7 @@ var deleteModelInfo = function() {
 	var Reconfirm = confirm("是否删除");
 	if (Reconfirm == true){
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/modelInfo/deleteModelInfo',
+			url: 'http://'+ip+':8888/manage_system/modelInfo/deleteModelInfo',
 			data: {
 				'modelId': modelId
 			},
@@ -101,7 +101,7 @@ var deleteModelInfo = function() {
 var selectAllModelInfoList = function() {
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/selectAllModelInfoList',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/selectAllModelInfoList',
 		data: '',
 		dataType: 'json',
 		type: 'GET',

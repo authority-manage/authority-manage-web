@@ -35,7 +35,7 @@ $(function() {
 
 
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/roleInfo/deleteByPrimaryKey',
+				url: 'http://'+ip+':8888/manage_system/roleInfo/deleteByPrimaryKey',
 				data: data,
 				dataType: 'json',
 				type: 'POST',
@@ -67,7 +67,7 @@ $(function() {
 var getModel = function() {
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/JGroupModelInfo/selectModelInfo',
+		url: 'http://'+ip+':8888/manage_system/JGroupModelInfo/selectModelInfo',
 		data: {
 			'groupId': 0
 		},
@@ -128,7 +128,7 @@ var getModel = function() {
 }
 var getRole = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectRoleAllNo',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectRoleAllNo',
 		data: {
 			// "groupId":groupId
 		},
@@ -190,7 +190,7 @@ var addAuthority = function() {
 			'roleId': roleId
 		};
 		$.ajax({
-			url: 'http://localhost:8888/manage_system/groupInfo/addGroupInfo',
+			url: 'http://'+ip+':8888/manage_system/groupInfo/addGroupInfo',
 			data: JSON.stringify(data),
 			dataType: 'json',
 			type: 'POST',
@@ -236,7 +236,7 @@ var addModel = function(groupId) {
 	};
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/JGroupModelInfo/insertModel',
+		url: 'http://'+ip+':8888/manage_system/JGroupModelInfo/insertModel',
 		data: data,
 		dataType: 'json',
 		type: 'POST',

@@ -12,7 +12,7 @@ $('document').ready(function() {
 var getAllEmpInfo = function(empId) {
 	selectDepartmentId();
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectByPrimaryKey',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectByPrimaryKey',
 		data: {
 			'empId': empId
 		},
@@ -54,7 +54,7 @@ var getAllEmpInfo = function(empId) {
 }
 var selectDepartmentId = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/departmentInfo/selectAllDepartmentName',
+		url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
 		data: '',
 		dataType: 'json',
 		type: 'GET',

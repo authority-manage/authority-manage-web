@@ -27,7 +27,7 @@ var rolePrivilegesAdd = function(roleId) {
 		'roleId': roleId
 	}
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateRoleAttribute',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateRoleAttribute',
 		data: data,
 		dataType: "json",
 		type: 'POST',
@@ -50,7 +50,7 @@ var rolePrivilegesAdd = function(roleId) {
 					'modelId': paa
 				}
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateRoleJurisdiction',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateRoleJurisdiction',
 					data: data,
 					dataType: "json",
 					type: 'POST',
@@ -72,7 +72,7 @@ var selectRoleIdAttribute = function(roleId) {
 
 
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleAllLeftTree',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleAllLeftTree',
 		data: {
 			'roleId': roleId
 		},
@@ -96,7 +96,7 @@ var selectRoleJurisdiction = function(roleId) {
 	var roleIdModel = roleId
 	var index = 1;
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
 		data: {},
 		dataType: "json",
 		type: 'GET',
@@ -115,7 +115,7 @@ var selectRoleJurisdiction = function(roleId) {
 				}
 				var Jurisdiction = [];
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
 					data: {
 						'roleId': roleIdModel,
 						'modelId': item.modelId
@@ -190,7 +190,7 @@ var drawChildren = function(Html, childrenList, index, roleIdModel, modelId) {
 			}
 			var Jurisdiction = [];
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
 				data: {
 					'roleId': roleIdModel,
 					'modelId': param.modelId

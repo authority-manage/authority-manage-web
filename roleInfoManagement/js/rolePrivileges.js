@@ -81,7 +81,7 @@ $('.MenuList li').off('click').on('click', function() {
 			$.each($("[name='Staff']:checked"), function(i, val) { //第一个参数表示索引下标，第二个参数表示当前索引元素
 				var userId = val.value;
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleIdRoleUser',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleIdRoleUser',
 					data: {
 						'userId': userId
 					},
@@ -101,7 +101,7 @@ $('.MenuList li').off('click').on('click', function() {
 								}
 							})
 							$.ajax({
-								url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateUserRoleId',
+								url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateUserRoleId',
 								data: {
 									'userId': userId,
 									'roleId': roleId
@@ -121,7 +121,7 @@ $('.MenuList li').off('click').on('click', function() {
 			$.each($("[name='Staff']:checked"), function(i, val) { //第一个参数表示索引下标，第二个参数表示当前索引元素
 				var groupId = val.value;
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectGroupRoleIdAdd',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectGroupRoleIdAdd',
 					data: {
 						'roleId': groupId
 					},
@@ -147,7 +147,7 @@ $('.MenuList li').off('click').on('click', function() {
 							})
 							console.log(roleId)
 							$.ajax({
-								url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateGroupRoleId',
+								url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateGroupRoleId',
 
 								data: {
 									'roleId': roleId,
@@ -202,7 +202,7 @@ var selectRoleJurisdiction = function(roleId) {
 	var roleIdModel = roleId
 	var index = 1;
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectModelAllLeftTree',
 		data: {},
 		dataType: "json",
 		type: 'GET',
@@ -238,7 +238,7 @@ var selectRoleJurisdiction = function(roleId) {
 				}
 				var Jurisdiction = [];
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
 					data: {
 						'roleId': roleIdModel,
 						'modelId': item.modelId
@@ -315,7 +315,7 @@ var drawChildren = function(Html, childrenList, index, roleIdModel, modelId) {
 
 			console.log(roleIdModel)
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleJurisdiction',
 				data: {
 					'roleId': roleIdModel,
 					'modelId': param.modelId
@@ -360,7 +360,7 @@ var drawChildren = function(Html, childrenList, index, roleIdModel, modelId) {
 }
 var selectGroupRoleId = function(roleId) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectGroupRoleId',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectGroupRoleId',
 		data: {
 			'roleId': roleId
 		},
@@ -416,7 +416,7 @@ var selectGroupRoleId = function(roleId) {
 
 var deleteRole = function(sValue) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleIdCheckUser',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleIdCheckUser',
 		data: {
 			'roleId': sValue
 		},
@@ -425,7 +425,7 @@ var deleteRole = function(sValue) {
 		contentType: 'application/json;charset=utf-8',
 		success(res) {
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/deleteByPrimaryKey',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/deleteByPrimaryKey',
 				data: {
 					'roleId': sValue
 				},
@@ -444,7 +444,7 @@ var deleteRole = function(sValue) {
 					}
 				})
 				$.ajax({
-					url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateUserRoleId',
+					url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateUserRoleId',
 					data: {
 						'userId': item.userId,
 						'roleId': roleId
@@ -454,7 +454,7 @@ var deleteRole = function(sValue) {
 				})
 			})
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectGroupRoleIdAdd',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectGroupRoleIdAdd',
 				data: {
 					'roleId': sValue,
 				},
@@ -474,7 +474,7 @@ var deleteRole = function(sValue) {
 							}
 						})
 						$.ajax({
-							url: 'http://localhost:8888/manage_system/RoleJRoleModel/updateGroupRoleId',
+							url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/updateGroupRoleId',
 							data: {
 								'userId': item.userId,
 								'roleId': roleId
@@ -488,7 +488,7 @@ var deleteRole = function(sValue) {
 				}
 			})
 			$.ajax({
-				url: 'http://localhost:8888/manage_system/RoleJRoleModel/deleteJRolemodel',
+				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/deleteJRolemodel',
 				data: {
 					'roleId': sValue
 				},
@@ -584,7 +584,7 @@ var adduser = function(roleId) {
 }
 var selectRoleAll = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleAll',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleAll',
 		data: {},
 		dataType: 'json',
 		type: 'GET',
@@ -620,7 +620,7 @@ var selectRoleAll = function() {
 }
 var selectRoleIdCheckUser = function(sValue) {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/RoleJRoleModel/selectRoleIdCheckUser',
+		url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleIdCheckUser',
 		data: {
 			'roleId': sValue
 		},

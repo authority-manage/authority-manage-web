@@ -34,7 +34,7 @@ var addModelInfo = function() {
 		'parentId':parentId
 	};
 	$.ajax({
-		url:'http://localhost:8888/manage_system/modelInfo/insertModelInfo',
+		url:'http://'+ip+':8888/manage_system/modelInfo/insertModelInfo',
 		data:data,
 		dataType:'json',
 		type:'POST',
@@ -51,7 +51,7 @@ var addModelInfo = function() {
 var selectAllModelInfo = function(value) {
 	var Html = [];
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/modelInfo/selectAllModelInfoList',
+		url: 'http://'+ip+':8888/manage_system/modelInfo/selectAllModelInfoList',
 		data: '',
 		dataType: 'json',
 		type: 'GET',

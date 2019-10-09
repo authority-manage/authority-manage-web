@@ -15,7 +15,7 @@ var selectOne = function() {
 		"userId": userId
 	};
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/userInfo/selectUserByUserId',
+		url: 'http://'+ip+':8888/manage_system/userInfo/selectUserByUserId',
 		data: data,
 		dataType: 'json',
 		type: 'GET',
@@ -53,7 +53,7 @@ var selectOne = function() {
 }
 var selectEmp = function() {
 	$.ajax({
-		url: 'http://localhost:8888/manage_system/empInfo/selectEmpInfoAll',
+		url: 'http://'+ip+':8888/manage_system/empInfo/selectEmpInfoAll',
 		data: '',
 		dataType: 'json',
 		type: 'GET',

@@ -91,7 +91,7 @@ $(document).ready(function(){
 var viewSuperiorDepartment = function(){
 	// var parentId;
 	$.ajax({
-		url : 'http://localhost:8888/manage_system/department/selectAllForParentIdDepartmentId',
+		url : 'http://'+ip+':8888/manage_system/department/selectAllForParentIdDepartmentId',
 		data : {},
 		dataType : 'json',
 		type : 'GET',
@@ -180,7 +180,7 @@ var recursionDeleteDepartmentInfoByDepartmentId = function(departmentId){
 	}
 	console.log(data);
 	$.ajax({
-		url:'http://localhost:8888/manage_system/department/delete',
+		url:'http://'+ip+':8888/manage_system/department/delete',
 		data:JSON.stringify(data),
 		dataType:'json',
 		type:'POST',
