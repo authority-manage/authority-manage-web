@@ -155,9 +155,9 @@ var info = {
 			Html.push('    <th><center>' + item.empName + '</center></th>');
 			Html.push('    <th><center>' + item.departmentName + '</center></th>');
 			Html.push('    <th><center>' + item.remark + '</center></th>');
-			Html.push('    <th><center>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId +
-				'" ><center></th>');
+			Html.push('    <th><center>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId + '" ><center></th>');
 			Html.push('</tr>');
+			
 		});
 		$('.TableContent').html(Html.join(''));
 
