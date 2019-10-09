@@ -144,21 +144,19 @@ var info = {
 				item.status = '停用';
 			}
 			Html.push('<tr>');
-			Html.push('    <th><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.userID +
-				'"></th>');
-			Html.push('    <th>' + (index + 1) + '</th>');
-			Html.push('    <th>' + item.userName + '</th>');
+			Html.push('    <th><center><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.userID +
+				'"></center></th>');
+			Html.push('    <th><center>' + (index + 1) + '</center></th>');
+			Html.push('    <th><center>' + item.userName + '</center></th>');
 			Html.push(
-				'    <th><button class="layui-btn layui-btn-primary reset_password_btn ">重置密码</button><button class = "layui-btn layui-btn-primary Inquire">查看</button><button class="layui-btn layui-btn-primary edit">修改</button><button class="layui-btn layui-btn-danger del">删除</button></th>'
+				'    <th><center><button class="layui-btn layui-btn-primary reset_password_btn ">重置密码</button><button class = "layui-btn layui-btn-primary Inquire">查看</button><button class="layui-btn layui-btn-primary edit">修改</button><button class="layui-btn layui-btn-danger del">删除</button></center></th>'
 			);
-			Html.push('    <th>' + item.status + '</th>');
-			Html.push('    <th>' + item.empName + '</th>');
-			Html.push('    <th>' + item.departmentName + '</th>');
-			Html.push('    <th>' + item.remark + '</th>');
-			Html.push('    <th>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId +
-				'" ></th>');
-
-			// Html.push('    <th class="user_id" style="display:none;">' + item.userId + '</th>');
+			Html.push('    <th><center>' + item.status + '</center></th>');
+			Html.push('    <th><center>' + item.empName + '</center></th>');
+			Html.push('    <th><center>' + item.departmentName + '</center></th>');
+			Html.push('    <th><center>' + item.remark + '</center></th>');
+			Html.push('    <th><center>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId +
+				'" ><center></th>');
 			Html.push('</tr>');
 		});
 		$('.TableContent').html(Html.join(''));
