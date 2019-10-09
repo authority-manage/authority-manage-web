@@ -85,7 +85,7 @@ $(document).ready(function() {
 		}
 	});
 
-
+	//删除角色
 	$('.roleInfo-delete-button').off('click').on('click', function() {
 		var userId = $('.userId').val();
 		if (userId == '无') {
@@ -96,7 +96,6 @@ $(document).ready(function() {
 			if (type == 'role') {
 				roleId = '';
 				$('.role-list :checkbox:checked').each(function(item) {
-
 					var pram = $(this).parents('tr').find('th+.role_id').text();
 					roleId += (pram + ',');
 				});
@@ -106,14 +105,12 @@ $(document).ready(function() {
 				} else {
 					roleId = roleId.substring(0, roleId.length - 1);
 					addUserRoleInfo(userId, roleId, 'del');
-
-
 				}
 			}
+			
 			if (type == 'group') {
 				groupId = '';
 				$('.group-list :checkbox:checked').each(function(item) {
-
 					var pram = $(this).parents('tr').find('th+.group_id').text();
 					groupId += (pram + ',');
 				});
@@ -123,19 +120,16 @@ $(document).ready(function() {
 				} else {
 					groupId = groupId.substring(0, groupId.length - 1);
 					addUserGroupInfo(userId, groupId, 'del');
-
 				}
 			}
+			
 			if (type == 'model') {
 				alert('模块权限只可修改不可删除');
 			}
-
-
 		}
 	});
 
-
-
+	//页面跳转
 	$('.MenuList li').off('click').on('click', function() {
 		$('.MenuList li').removeClass('active');
 		$(this).addClass('active');
@@ -158,14 +152,12 @@ $(document).ready(function() {
 
 	});
 });
+
 var saveOperatorModel = function(userId) {
 	var modelId = "";
-	var index = 0;
 	var str = "";
 	var integer = 11;
 	$('.operator-role-list :checkbox').each(function() {
-		console.log(str.length);
-
 		if ($(this).prop('checked') == true) {
 			str = str + '1';
 		} else {
@@ -177,12 +169,8 @@ var saveOperatorModel = function(userId) {
 			str += "000000000";
 			modelId += $(this).parent().find('.modelId').val() + ',';
 		}
-
-
-
-		// 	
-
 	});
+	
 	modelId = modelId.substring(0, modelId.length - 1);
 	var newStr = "";
 	var newIndex = 1;
@@ -475,8 +463,6 @@ var selectDepartmentNameAndEmpNameLists = function() {
 
 				$('.departmentClick').click(function() {
 					var departmentId = $(this).find('.departmentA').val();
-					
-					
 				});
 				$('.user-name-click').click(function() {
 					var userId = $(this).find('.user-name').val();
@@ -652,7 +638,7 @@ var openAddGroupPage = function(userId) {
 			'<div class="layui-form-item layui-inline">' +
 			' <label class="layui-form-label">组名:</label>' +
 			' <div class="layui-input-block">' +
-			'  <input type="text" name="title" required placeholder="请输入管理组名" autocomplete="off" class="layui-input" id="inputName"/>' +
+			'  <input type="text" name="title" required placeholder="请输入管理组名" autocomplete="off" class="layui-input" id="input-groupName"/>' +
 			' </div>' +
 			' </div>' +
 			'<div class="layui-form-item layui-inline selectGroupInfoButton-wapper">' +
@@ -713,7 +699,7 @@ var openAddGroupPage = function(userId) {
 
 
 			$('.selectGroupButton').off('click').on('click', function() {
-				var groupName = $('#inputName').val();
+				var groupName = $('#input-groupName').val();
 				if(groupName==""){
 					alert('请输入管理组名')
 					return false;
@@ -741,7 +727,7 @@ var openAddRolePage = function(userId) {
 			'<div class="layui-form-item layui-inline">' +
 			' <label class="layui-form-label">角色名:</label>' +
 			' <div class="layui-input-block">' +
-			'  <input type="text" name="title" required placeholder="请输入角色名" autocomplete="off" class="layui-input" id="roleNameInput"/>' +
+			'  <input type="text" name="title" required placeholder="请输入角色名" autocomplete="off" class="layui-input" id ="intput-roleName"/>' +
 			' </div>' +
 			' </div>' +
 			'<div class="layui-form-item layui-inline selectRoleInfoButton-wapper">' +
@@ -796,11 +782,12 @@ var openAddRolePage = function(userId) {
 				addUserRoleInfo(userId, roleId, "add");
 			});
 			$('.selectRoleInfoButton').off('click').on('click', function() {
-				var roleName = $('#roleNameInput').val();
+				var roleName = $('#intput-roleName').val();
 				if(roleName==""){
 					alert('请输入角色名');
-					return false;
+					return false
 				}
+				console.log(roleName)
 				selectRoleInfoByRoleNameOnSelectButton(roleName);
 			});
 		}
@@ -832,6 +819,7 @@ var selectRoleInfoByRoleNameOnSelectButton = function(roleName) {
 }
 
 var selectGroupInfoByGroupNameOnSelectButton = function(groupName) {
+
 	$.ajax({
 		url: 'http://localhost:8888/manage_system/groupInfo/selectGroupInfoByGroupName',
 		data: {
