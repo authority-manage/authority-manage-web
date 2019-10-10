@@ -25,13 +25,7 @@ var getAllEmpInfo = function(empId) {
 				$('#empName').val(item.empName);
 				$("input[type=radio][name=status][value=" + item.status + "]").attr("checked", 'checked');
 				$("input[type=radio][name=sex][value=" + item.sex + "]").attr("checked", 'checked');
-				if ($('#departmentid').text() == '') {
-					var Html = [];
-					Html.push('<option>当前油站不存在<option>');
-					$('#departmentId').html(Html.join(''));
-				} else {
-					$('#departmentId').val(item.departmentId);
-				}
+				$('#departmentId').val(item.departmentId);
 				$('#job').val(item.job);
 				$('#tel').val(item.tel);
 				$('#empDate').val(dateFormat(item.empDate));
@@ -48,6 +42,13 @@ var getAllEmpInfo = function(empId) {
 				if (item.isDel == '1') {
 					$('#isDel').val('已删除');
 				}
+				if ($('#departmentId').find("option:selected").text() == '') {
+					var Html = [];
+					Html.push('<option>当前油站不存在<option>');
+					$('#departmentId').html(Html.join(''));
+				} else {
+					$('#departmentId').val(item.departmentId);
+				}
 			});
 		}
 	});
@@ -62,7 +63,9 @@ var selectDepartmentId = function() {
 			var Html = [];
 			res.data.forEach(function(item, index) {
 				Html.push('<option value = "' + item.departmentId + '">' + item.departmentName + '</option>');
+				
 			});
+			
 			$('#departmentId').html(Html.join());
 		}
 	});
