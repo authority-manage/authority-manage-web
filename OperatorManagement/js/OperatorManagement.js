@@ -192,15 +192,12 @@ var info = {
 			var form = layui.form;
 			form.render('checkbox');
 			form.on('checkbox(Staff)', function(data) {
-
-
-
-
-
+				
 			});
 		});
-		info.Page(data);
-
+		if (data.total > 10){
+			info.Page(data);
+		}
 	},
 	selectStation: function() {
 		$.ajax({
@@ -225,26 +222,23 @@ var info = {
 		});
 	},
 	Page: function(data) {
-		if (data.pageNum != 1) {
-			layui.use('laypage', function() {
-				var laypage = layui.laypage;
-				//执行一个laypage实例
-				laypage.render({
-					curr: data.pageNum,
-					elem: 'Page',
-					count: data.total,
-					limit: '10',
-					theme: '#1E9FFF',
-					groups: '5',
-					jump: function(item, first) {
-						if (!first) {
-							info.TableDataRequest(item.curr);
-						}
+		layui.use('laypage', function() {
+			var laypage = layui.laypage;
+			//执行一个laypage实例
+			laypage.render({
+				curr: data.pageNum,
+				elem: 'Page',
+				count: data.total,
+				limit: '10',
+				theme: '#1E9FFF',
+				groups: '5',
+				jump: function(item, first) {
+					if (!first) {
+						info.TableDataRequest(item.curr);
 					}
-				});
+				}
 			});
-		}
-
+		});
 	}
 };
 
