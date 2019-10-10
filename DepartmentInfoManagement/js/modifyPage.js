@@ -105,6 +105,7 @@ var updateDepartmentInfoByDepartmentId = function(param) {
 		$('#superiorDepartment').val(0);
 	}
 	var data = {
+		"mTime": getTime(),
 		"departmentId": departmentId,
 		"parentId": $('#superiorDepartment option:selected').val(),
 		"departmentName": $("#departmentName").val(),
@@ -113,7 +114,6 @@ var updateDepartmentInfoByDepartmentId = function(param) {
 		"address": $("#address").val(),
 		"remark": $("#remark").val(),
 		"mUser": $("#empName option:selected").val(),
-		"mTime": getTime(),
 		"isDel": 0
 	}
 
