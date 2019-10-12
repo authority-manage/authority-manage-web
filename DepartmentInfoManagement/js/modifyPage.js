@@ -129,6 +129,14 @@ var updateDepartmentInfoByDepartmentId = function(param) {
 		alert("地址不能为空");
 		return false;
 	}
+	// 判断是否为电话号码
+	var isMobile=/^(?:13\d|15\d)\d{5}(\d{3}|\*{3})$/;   
+	var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+	if(!isMobile.test($("#tel").val()) && !isPhone.test($("#tel").val())){
+		alert("请填写正确的电话号码");
+		return false;
+	}
+	
 
 	console.log(data);
 	$.ajax({

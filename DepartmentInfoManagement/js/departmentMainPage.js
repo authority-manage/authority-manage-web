@@ -1,13 +1,10 @@
 $(document).ready(function() {
 	var departmentId = '';
-	var myself = '';
+	// var myself = '';
 	viewSuperiorDepartment();
 
 	$('#browser').off('click').on('click', 'li', function() {
-
 		departmentId = $(this).attr('value');
-		// removeClass("selected");
-		// $(this).removeClass("selected");
 		$(this).addClass("selected");
 		var myself = this;
 		$('li').each(function() {
@@ -129,9 +126,9 @@ var viewSuperiorDepartment = function() {
 		success(res) {
 			console.log(res);
 			var Html = [];
-			Html.push('<li>' + '所有油站');
-			//所有油站的子类
-			Html.push('<ul>');
+			// Html.push('<li>' + '所有油站');
+			// //所有油站的子类
+			// Html.push('<ul>');
 			// if(res.data > 0){
 			// 	
 			// }
@@ -148,8 +145,8 @@ var viewSuperiorDepartment = function() {
 					}
 				});
 			}
-			Html.push('</ul>');
-			Html.push('</li>');
+			// Html.push('</ul>');
+			// Html.push('</li>');
 			//添加到html里
 			$('#browser').html(Html.join(''));
 			//使用插件

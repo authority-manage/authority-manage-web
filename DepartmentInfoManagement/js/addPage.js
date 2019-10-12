@@ -85,6 +85,14 @@ var addSuperiorDepartment = function(){
 		alert("地址不能为空");
 		return false;
 	}
+	
+	// 判断是否为电话号码
+	var isMobile=/^(?:13\d|15\d)\d{5}(\d{3}|\*{3})$/;   
+	var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+	if(!isMobile.test(tel) && !isPhone.test(tel)){
+		alert("请填写正确的电话号码");
+		return false;
+	}
 
 	var data = {
 		'parentId':parentId,
@@ -148,17 +156,14 @@ var layuiAddSelectBtn = function(param){
 		layer.open({
 			type: 1 //Page层类型
 			,area: ['300px', '350px']
-			,title: ['所有油站','background-color: #00BFFF;text-align: center;font-size: 25px;font-weight: bold;']
-			,shade: 0.6 //遮罩透明度
+			,title: ['所有油站','background-color: #669df6;text-align: center;font-size: 25px;font-weight: bold;']
+			,shade: 0 //遮罩透明度
 			,maxmin: true //允许全屏最小化
-			,btn: ["确认","取消"]
-			,content: '<ul id="browser" style="margin-left: 40px;margin-top: 20px;"></ul>',
-			// yes: function(index, layer){
-			// 	
-			// }
+			,btn: ["确认"]
+			,content: '<ul id="browser" class="browser" style="margin-left: 40px;margin-top: 20px;"></ul>',
 		});
 		treeReturnSuperiorDepartment();
-		$(document).on('click', 'li', function() {
+		$('#browser').on('click', 'li', function() {
 			var departmentId = $(this).attr("value");
 			// var departmentNameText = $(this).attr("text");
 			console.log(departmentId);
@@ -167,6 +172,17 @@ var layuiAddSelectBtn = function(param){
 			console.log($('#superiorDepartment').val());
 			return false;
 		});
+		// $('#browser').off('click').on('click', 'li', function() {
+		// 	departmentId = $(this).attr('value');
+		// 	$(this).addClass("selected");
+		// 	var myself = this;
+		// 	$('li').each(function() {
+		// 		if (this != myself) {
+		// 			$(this).removeClass("selected");
+		// 		}
+		// 	});
+		// 	return false;
+		// });
 	});
 }
 
@@ -180,9 +196,9 @@ var treeReturnSuperiorDepartment = function(){
 		success(res) {
 			console.log(res);
 			var Html = [];
-			Html.push('<li value="所有油站">'+'所有油站');
-			//所有油站的子类
-			Html.push('<ul>');
+			// Html.push('<li value="所有油站">'+'所有油站');
+			// //所有油站的子类
+			// Html.push('<ul>');
 			if(res){
 				// Html.push('<option value="0">'+'无'+'</option>');
 				res.data.forEach(function(item,index){
@@ -193,14 +209,25 @@ var treeReturnSuperiorDepartment = function(){
 					}
 				});	
 			}
-			Html.push('</ul>');
-			Html.push('</li>');
+			// Html.push('</ul>');
+			// Html.push('</li>');
 			$('#browser').html(Html.join(''));
 			$("#browser").treeview({
 				toggle: function() {
-					// console.log(1111);
+					
 				}
 			});	
+			$('.browser').off('click').on('click', 'li', function() {
+				departmentId = $(this).attr('value');
+				$(this).addClass("selected");
+				var myself = this;
+				$('li').each(function() {
+					if (this != myself) {
+						$(this).removeClass("selected");
+					}
+				});
+				return false;
+			});
 		},
 	});
 }
