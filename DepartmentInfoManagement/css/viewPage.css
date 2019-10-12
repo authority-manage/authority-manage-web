@@ -2,20 +2,20 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 400px;
+	width: 380px;
 	height: 500px;
-	margin-left: -220px;
-	margin-top: -250px;
+	margin-left: -210px;
+	margin-top: -315px;
 	padding: 10px 40px;
 	/* border: 1px solid black; */
 }
 .content>p,input{
 	padding: 5px 0;
 }
-#superiorDepartment{
+/* #superiorDepartment{
 	width: 170px;
 	height: 30px;
-}
+} */
 
 .superiorDepartment,
 .departmentName,
@@ -30,9 +30,48 @@
 .isDel{
 	padding: 0 20px 0 0;
 }
-input, select{
+/* input, select{
 	border:none;
 	outline:medium;
+} */
+#add,
+#cancel{
+	margin: 0 20px;
+	outline: none;
+	width: 100px;
+	height: 35px;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
+}
+.btn{
+	padding:40px 30px;
+}
+input{
+	position: absolute;
+	margin-left: 45px;
+}
+#empName{
+	position: absolute;
+	margin-left: 60px;
+}
+#tel,
+#address,
+#remark{
+	position: absolute;
+	margin-left: 75px;
+}
+#cUser{
+	position: absolute;
+	margin-left: 60px;
+}
+#mUser{
+	position: absolute;
+	margin-left: 28px;
+}
+#mTime{
+	position: absolute;
+	margin-left: 13px;
 }
 
 	

@@ -7,18 +7,21 @@ $(function() {
 	$('.AddStaff').off('click').on('click', function() {
 		addStaff();
 	});
-	$('.user-page').off('click').on('click', function() {
-		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
-	});
-	$('.model-page').off('click').on('click', function() {
+
+	$('#Model').off('click').on('click', function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click', function() {
+	$('#Role').off('click').on('click', function() {
 		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click', function() {
+	$('#Managements').off('click').on('click', function() {
 		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
+	});
+
+
 	$('.mail').click(function() {
 		alert('暂无功能，待实现');
 	});
@@ -58,13 +61,12 @@ var info = {
 		});
 	},
 	rePassWordById: function(userId) {
-
 		var data = {
 			"userId": userId
 		}
 
 		$.ajax({
-			url: 'http://'+ip+':8888/manage_system/userInfo/updatePwd',
+			url: 'http://' + ip + ':8888/manage_system/userInfo/updatePwd',
 			contentType: 'application/json;charset=utf-8',
 			data: data,
 			dataType: 'json',
@@ -80,13 +82,14 @@ var info = {
 			"userId": userId
 		}
 		$.ajax({
-			url: 'http://'+ip+':8888/manage_system/userInfo/deleteByuserId',
+			url: 'http://' + ip + ':8888/manage_system/userInfo/deleteByuserId',
 			contentType: 'application/json;charset=utf-8',
 			data: data,
 			dataType: 'json',
 			type: 'GET',
 			success: function(res) {
 				alert(res.msg);
+				window.location.reload();
 				info.TableDataRequest(1);
 			}
 		});
@@ -97,14 +100,14 @@ var info = {
 		var empName = $('#emp_name').val();
 		var departmentId = $('.station option:selected').val();
 		if (departmentId == '不限') {
-			departmentId = null;
+			departmentId = '';
 		}
-		if (userName == '') {
-			userName = null;
-		}
-		if (empName == '') {
-			empName = null;
-		}
+		// if (userName == '') {
+		// 	userName = null;
+		// }
+		// if (empName == '') {
+		// 	empName = null;	
+		// }
 		var data = {
 			"userName": userName,
 			"empName": empName,
@@ -112,8 +115,9 @@ var info = {
 			"pageNum": pageNum,
 			"pageSize": 10
 		};
+		console.log(data);
 		$.ajax({
-			url: 'http://'+ip+':8888/manage_system/userInfo/selectUserInfoLists',
+			url: 'http://' + ip + ':8888/manage_system/userInfo/selectUserInfoLists',
 			data: data,
 			dataType: 'json',
 			Type: 'GET',
@@ -132,7 +136,6 @@ var info = {
 			list: param.list,
 			pageNum: param.pageNum
 		};
-
 		data.list.forEach(function(item, index) {
 			if (item.status == '1') {
 				item.status = '有效';
@@ -144,18 +147,24 @@ var info = {
 				item.status = '停用';
 			}
 			Html.push('<tr>');
-			Html.push('    <th><center><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.userID +
-				'"></center></th>');
+			Html.push(
+				'<th><center><input class="Check" name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' +
+				(index + 1) + '"></center></th>');
 			Html.push('    <th><center>' + (index + 1) + '</center></th>');
 			Html.push('    <th><center>' + item.userName + '</center></th>');
 			Html.push(
-				'    <th><center><button class="layui-btn layui-btn-primary reset_password_btn ">重置密码</button><button class = "layui-btn layui-btn-primary Inquire">查看</button><button class="layui-btn layui-btn-primary edit">修改</button><button class="layui-btn layui-btn-danger del">删除</button></center></th>'
+				'    <th><center><button class="layui-btn-primary layui-btn layui-btn-sm reset_password_btn ">重置密码</button><button class = "layui-btn-primary layui-btn layui-btn-sm Inquire">查看</button><button class="layui-btn-primary layui-btn layui-btn-sm edit">修改</button><button class="layui-btn-primary layui-btn layui-btn-sm del">删除</button></center></th>'
 			);
 			Html.push('    <th><center>' + item.status + '</center></th>');
 			Html.push('    <th><center>' + item.empName + '</center></th>');
-			Html.push('    <th><center>' + item.departmentName + '</center></th>');
+			if (item.isDel == 1) {
+				Html.push('    <th><center>' + '当前油站已被删除' + '</center></th>');
+			} else {
+				Html.push('    <th><center>' + item.departmentName + '</center></th>');
+			}
 			Html.push('    <th><center>' + item.remark + '</center></th>');
-			Html.push('    <th><center>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId + '" ><center></th>');
+			Html.push('    <th><center>' + dateFormat(item.cTime) + '<input class="userId" type="hidden" value="' + item.userId +
+				'" ><center></th>');
 			Html.push('</tr>');
 		});
 		$('.TableContent').html(Html.join(''));
@@ -187,21 +196,32 @@ var info = {
 				info.rePassWordById(userId);
 			}
 		});
-
 		layui.use('form', function() {
 			var form = layui.form;
+			//ȫѡ
 			form.render('checkbox');
 			form.on('checkbox(Staff)', function(data) {
-				
+				if (data.value == 'all') {
+					console.log('全选');
+					var a = data.elem.checked;
+					if (a == true) {
+						$(".Check").prop("checked", true);
+						form.render('checkbox');
+					} else {
+						$(".Check").prop("checked", false);
+						form.render('checkbox');
+					}
+				}
 			});
-		});
-		if (data.total > 10){
+		})
+
+		if (data.total > 10) {
 			info.Page(data);
 		}
 	},
 	selectStation: function() {
 		$.ajax({
-			url: 'http://'+ip+':8888/manage_system/departmentInfo/selectAllDepartmentName',
+			url: 'http://' + ip + ':8888/manage_system/departmentInfo/selectAllDepartmentName',
 			data: '',
 			dataType: 'json',
 			type: 'GET',
@@ -209,8 +229,14 @@ var info = {
 
 				var html = [];
 				html.push('<option>不限</option>');
+				console.log(res);
 				res.data.forEach(function(item) {
-					html.push('<option class="departmentId" value =' + item.departmentId + '>' + item.departmentName +
+					$('.hiddenDepartmentId').val(item.departmentId);
+					// var a = item.departmentId;
+					// console.log(departmentIdOne);
+					// console.log(a);
+
+					html.push('<option class="departmentId" value =' + $('.hiddenDepartmentId').val() + '>' + item.departmentName +
 						'</option>');
 				});
 				$('.station').html(html.join(''));
@@ -260,11 +286,11 @@ var dateFormat = function(time) {
 var addStaff = function() {
 	layer.open({
 		type: 2,
-		title: false,
 		shadeClose: true,
-		shade: 0.8,
-		skin: 'myskin',
-		area: ['500px', '500px'],
+		title: false,
+		closeBtn: 0,
+		skin: 'mylayer',
+		area: ['500px', '600px'],
 		content: 'AddingOperators.html', //iframe的url
 		end: function() {
 			location.reload();
@@ -280,7 +306,8 @@ var modificationOfOperators = function(userId) {
 		shadeClose: true,
 		shade: 0.8,
 		skin: 'myskin',
-		area: ['500px', '500px'],
+		closeBtn: 0,
+		area: ['500px', '600px'],
 		content: 'ModificationOfOperators.html?userId=' + userId,
 		end: function() {
 			location.reload();
@@ -295,6 +322,7 @@ var viewOperators = function(userId) {
 		title: false,
 		shadeClose: true,
 		shade: 0.8,
+		closeBtn: 0,
 		skin: 'myskin',
 		area: ['500px', '600px'],
 		content: 'ViewOperators.html?userId=' + userId,
@@ -304,14 +332,12 @@ var viewOperators = function(userId) {
 var checkUserName = function() {
 	if ($('#user_name').val != '') {
 		if (!$('#user_name').val().match(/^[\u0391-\uFFE5A-Za-z0-9-\s]+$/)) {
-			alert('不能输入特殊符号！');
 			$('#user_name').val('');
 		}
 	}
 }
 var checkEmpName = function() {
 	if (!$('#emp_name').val().match(/^[\u4E00-\u9FA5]{1,}$/)) {
-		alert('姓名只能输入汉字哦~');
 		$('#emp_name').val('');
 		return false;
 	}

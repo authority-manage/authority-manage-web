@@ -7,9 +7,19 @@ console.log(departmentId);
 
 $(document).ready(function(){
 	departmentNameByParentId();
+	
+	//点击事件确认
+	$('#add').click(function(){
+		custom_close();
+	})
+	
+	//点击事件取消
+	$('#cancel').click(function(){
+		custom_close();
+	})
 		
 });
-var frequency = 0;
+
 //通过userId查找userInfo所有数据
 var viewDepartmentInfoByDepartmentId = function(){
 	$.ajax({
@@ -26,16 +36,16 @@ var viewDepartmentInfoByDepartmentId = function(){
 					console.log(item);
 					$("#hiddenSuperiorDepartment option[value='"+item.parentId+"']").attr("selected" , "selected")
 					var parentId = $("#hiddenSuperiorDepartment option:selected").text();
-					$("#superiorDepartment").text(parentId);
-					$("#departmentName").text(item.departmentName);
-					$("#empName").text(item.empName);
-					$("#tel").text(item.tel);
-					$("#address").text(item.address);
-					$("#remark").text(item.remark);
-					$("#cUser").text(item.cUser);
-					$("#mUser").text(item.empName);
-					$("#cTime").text(dateFormat(item.cTime));
-					$("#mTime").text(dateFormat(item.mTime));
+					$("#superiorDepartment").val(parentId);
+					$("#departmentName").val(item.departmentName);
+					$("#empName").val(item.empName);
+					$("#tel").val(item.tel);
+					$("#address").val(item.address);
+					$("#remark").val(item.remark);
+					$("#cUser").val(item.cUser);
+					$("#mUser").val(item.empName);
+					$("#cTime").val(dateFormat(item.cTime));
+					$("#mTime").val(dateFormat(item.mTime));
 				});
 			}
 		}
@@ -55,7 +65,6 @@ var departmentNameByParentId = function(){
 			if(res){
 				Html.push('<option value="0">无父ID</option>');
 				res.data.forEach(function(item,index){
-					frequency = frequency + 1;
 					Html.push('<option value="'+item.departmentId+'">'+item.departmentName+'</option>');
 				});
 			}
@@ -65,6 +74,12 @@ var departmentNameByParentId = function(){
 		},
 	});
 }
+
+//关闭当前页
+function custom_close(){
+	var index = parent.layer.getFrameIndex(window.name);
+	parent.layer.close(index);//关闭当前页
+};
 
 
 //格式化日期

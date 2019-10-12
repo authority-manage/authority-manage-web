@@ -108,8 +108,6 @@ var selectRoleJurisdiction = function(roleId) {
 				Html.push('<tr id="a' + index + '">');
 				Html.push('<th class ="departmentClick departmentNameA"><b>' + item.modelName +
 					'</b><input type="text" value="' + item.modelId + '" class=role-model-id></th>');
-				console.log(roleIdModel)
-				console.log(item.modelId)
 				if (roleIdModel == undefined) {
 					roleIdModel = $('.role-id-input-privileges').val();
 				}
@@ -132,12 +130,12 @@ var selectRoleJurisdiction = function(roleId) {
 							if (i < 11) {
 								if (Jurisdiction[i] == 1) {
 									Html.push(
-										'<td pane><input name="All-' + item.modelId +
+										'<td pane style="text-align: center;"><input name="All-' + item.modelId +
 										'" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked ></td>'
 									);
 								} else {
 									Html.push(
-										'<td pane><input name="All-' + item.modelId +
+										'<td pane style="text-align: center;"><input name="All-' + item.modelId +
 										'" type="checkbox"  lay-skin="primary" lay-filter="Staff"></td>'
 									);
 
@@ -205,18 +203,18 @@ var drawChildren = function(Html, childrenList, index, roleIdModel, modelId) {
 						if (i < 11) {
 							if (Jurisdiction[i] == 1) {
 								Html.push(
-									'<td pane><input name="All-' + param.modelId +
+									'<td pane style="text-align: center;"><input name="All-' + param.modelId +
 									'" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 								);
 							} else {
 								Html.push(
-									'<td pane><input name="All-' + param.modelId +
+									'<td pane style="text-align: center;"><input name="All-' + param.modelId +
 									'" type="checkbox"  lay-skin="primary" lay-filter="Staff"></td>'
 								);
 							}
 						} else {
 							Html.push(
-								'<td pane hidden><input name="All-' + param.modelId +
+								'<td pane hidden  ><input name="All-' + param.modelId +
 								'" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 							);
 						}

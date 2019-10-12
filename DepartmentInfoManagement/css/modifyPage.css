@@ -45,13 +45,20 @@
 	outline: none;
 	width: 100px;
 	height: 35px;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
+	/* margin: 0 20px;
+	outline: none;
+	width: 100px;
+	height: 35px;
 	background-color: #00BFFF;
 	border-radius: 10px;
 	color: #F8F8FF;
     border-color: #F8F8FF;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
     -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
-    box-shadow: 0 2px 0 #F8F8FF;
+    box-shadow: 0 2px 0 #F8F8FF; */
 }
 .btn{
 	padding:0 40px;

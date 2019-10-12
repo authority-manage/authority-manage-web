@@ -1,30 +1,37 @@
 
 .reamrk{
+	margin-left: 50px;
 	width: 100px;
 	height: 45px;
 }
-.top {
-	width: 500px;
-	height: 35px;
-	background-color: #40AFFE;
-	border-radius: 25px 25px 0 0;
+#font0{
+	font-size: 20px;
+	padding: 5px 180px;
 }
-.wapper{
-	border-radius: 25px;
-	margin-left: 500px;
-	position: absolute;
+.top {
+
+	background-color: #669df6;
+	height: 35px;
 	width: 500px;
-	height: 500px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.wapper{
+	width: 500px;
+	height: 600px;
+	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-left: -250px;
-	margin-top: -250px;
+	margin: -300px 0 0 -250px;
+	border-radius: 35px;
+	border-color:  #dadada;
 } 
-#old_password,
-#new_password,
 #user_name,
 #password,
 #check_password,
+#old_password,
+#new_password,
 #job,
 #tel,
 .relartion_user_id,
@@ -33,11 +40,11 @@
 	position: absolute;
 	width: 200px;
 	height: 25px;
-	left: 240px;
+	left: 220px;
 	
-} 
+}
+
 .relation_user,
-.btn_wapper,
 .select_wapper,
 .select_radio,
 .emp_name_wapper,
@@ -47,21 +54,29 @@
 	width: 400px;
 	height: 30px;
 	margin-top: 25px;
-	margin-left: 100px;
+	margin-left: 80px;
 }
 .box{
 	width: 500px;
-	height: 500px;
+	height: 600px;
 	position: absolute;
-	top:50%;
-	margin-top: -251px;
+	top: 50%;
+	margin-top: -300px;
+}
+.btn_wapper{	
+	top: 50px;
+	width: 400px;
+	height: 30px;
+	margin-top: 25px;
+	margin-left:100px;
 }
 .back,
 .ok {
-	height: 30px;
-	width: 100px;
-	border-radius: 5px;
-	border: none;
-	background-color: #1E9FFF;
+	width: 90px;
+	height: 32px;
+	margin-top: 25px;
+	margin-left: 15px;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
 }
-

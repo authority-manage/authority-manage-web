@@ -1,6 +1,7 @@
 #text {
 	font-size: 20px;
-
+	margin-top: -30px;
+	margin-left: 180px;
 }
 
 #half {
@@ -9,58 +10,63 @@
 }
 
 #numText {
+	margin-left: 50px;
 	position: absolute;
-	margin-top: 20px;
+	margin-top: 40px;
 	font-size: 15px;
 }
 
 #empNum {
 	position: absolute;
 	margin-top: 50px;
-	margin-left: 150px;
-	margin-top: 10px;
+	margin-left: 200px;
+	margin-top: 30px;
 	width: 200px;
 	height: 30px;
 }
 
 #nameText {
 	position: absolute;
-	margin-top: 60px;
+	margin-top: 80px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #departmentIdText {
-	position: absolute;
-	margin-top: 155px;
-	font-size: 15px;
+  position: absolute;
+  margin-top: 175px;
+  margin-left: 50px;
+  font-size: 15px;
 
 }
 
 #jobText {
-	position: absolute;
-	margin-top: 200px;
-	font-size: 15px;
+  position: absolute;
+  margin-top: 220px;
+  font-size: 15px;
+  margin-left: 50px;
 }
 
 #empName {
-	width: 200px;
-	height: 30px;
-	position: absolute;
-	margin-top: 50px;
-	margin-left: 150px;
+  width: 200px;
+  height: 30px;
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 200px;
 
 }
 
 #job {
-	width: 200px;
-	height: 30px;
+  width: 200px;
+  height: 30px;
+  margin-left: 200px;
 
 }
 
 #tel {
-	width: 200px;
-	height: 30px;
-
+  width: 200px;
+  height: 30px;
+  margin-left: 200px;
 }
 
 
@@ -68,7 +74,7 @@
 #add {
 	width: 100px;
 	height: 30px;
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-left: 20px;
 
 }
@@ -76,92 +82,98 @@
 #exit {
 	width: 100px;
 	height: 30px;
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-left: 20px;
 }
 
 
+
 #status1 {
-	position: absolute;
-	margin-top: 80px;
-	margin-left: 180px;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 200px;
+
 }
 
 #fontZZ {
-	margin-top: -31px;
-	margin-left: 30px;
+  margin-top: -31px;
+  margin-left: 30px;
 }
 
 #fontYC {
-	margin-top: -31px;
-	margin-left: 30px;
+  margin-top: -31px;
+  
+  margin-left: 30px;
 }
 
 #fontNv {
-	margin-top: -31px;
-	margin-left: 30px;
+  margin-top: -31px;
+  margin-left: 30px;
 }
 
 #fontNa {
-	margin-top: -31px;
-	margin-left: 30px;
+  margin-top: -31px;
+  margin-left: 30px;
 }
 
 #status2 {
-	position: absolute;
-	margin-top: 80px;
-	margin-left: 250px;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 280px;
 }
 
 #sex1 {
-	position: absolute;
-	margin-top: 110px;
-	margin-left: 180px;
+  position: absolute;
+  margin-top: 130px;
+  margin-left: 200px;
 }
 
 #sex2 {
-	position: absolute;
-	margin-top: 110px;
-	margin-left: 250px;
+  position: absolute;
+  margin-top: 130px;
+  margin-left: 280px;
 }
 
+
 #departmentId {
-	position: absolute;
-	margin-left: 150px;
-	margin-top: 150px;
-	width: 200px;
-	height: 30px;
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 175px;
+  width: 200px;
+  height: 30px;
 }
 
 
 #job {
-	position: absolute;
-	margin-top: 190px;
-	margin-left: 150px;
+  position: absolute;
+  margin-top: 215px;
+  margin-left: 200px;
 }
 
 #empDateText {
-	position: absolute;
-	margin-top: 300px;
-	font-size: 15px;
+  position: absolute;
+  margin-top: 310px;
+  margin-left: 50px;
+  font-size: 15px;
 }
 
 #telText {
 	position: absolute;
-	margin-top: 240px;
-
+	margin-top: 265px;
+	font-size: 15px;
+	margin-left: 50px;
 }
 
 #tel {
 	position: absolute;
-	margin-top: 240px;
-	margin-left: 150px;
+	margin-top: 260px;
+	margin-left: 200px;
 }
 
 #empDate {
 	position: absolute;
-	margin-top: 295px;
-	margin-left: 150px;
+	margin-top: 305px;
+	margin-left: 200px;
 	width: 200px;
 	height: 30px;
 }
@@ -170,12 +182,13 @@
 	position: absolute;
 	margin-top: 350px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #remark {
 	position: absolute;
-	margin-left: 150px;
-	margin-top: 350px;
+	margin-left: 200px;
+	margin-top: 360px;
 	width: 200px;
 	height: 50px;
 }
@@ -184,7 +197,7 @@
 	width: 90px;
 	height: 32px;
 	position: absolute;
-	margin-top: 420px;
+	margin-top: 440px;
 	margin-left: 120px;
 	border: #f6fffe solid 0px;
 	background-color: #669df6;
@@ -195,7 +208,7 @@
 	width: 90px;
 	height: 32px;
 	position: absolute;
-	margin-top: 420px;
+	margin-top: 440px;
 	margin-left: 280px;
 	border: #f6fffe solid 0px;
 	background-color: #669df6;
@@ -224,17 +237,16 @@ textarea {
 	border-radius: 2px;
 }
 
-
 #all {
 	width: 500px;
 	height: 600px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -300px 0 0 -250px;
+	margin: -310px 0 0 -270px;
 	border-radius: 35px;
-	border-color: #dadada;
-
+	border-color:  #dadada;
+	
 }
 
 
@@ -245,6 +257,6 @@ textarea {
 	width: 500px;
 	border-top-left-radius: 20em;
 	border-top-right-radius: 20em;
-	margin-left: -20px;
-	margin-top: -10px;
+
+
 }

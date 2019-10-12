@@ -100,3 +100,18 @@
   font-size: 15px;
   color: #9A9A9A;
 }
+#Model{
+	margin-top: -2px;
+}
+#Role{
+	margin-top: -10px;
+}
+#Managements{
+	margin-top: -10px;
+}
+#Operators{
+	margin-top: -8px;
+}
+.spacing{
+	margin-left: 70px;
+}

@@ -31,14 +31,14 @@ var modelNameAll= function(){
 			
 			res.forEach(function(item,index){
 				HtmlModelId.push(item.modelId)
-				Html.push('<tr id="a'+index+'">');
-				Html.push('<th class ="departmentClick departmentNameA"><b>'+item.modelName+'</b><input type="text" value="'+item.modelId+'" class=role-model-id></th>');
+				Html.push('<tr  id="a'+index+'">');
+				Html.push('<th  class ="departmentClick departmentNameA"><b>'+item.modelName+'</b><input type="text" value="'+item.modelId+'" class=role-model-id></th>');
 			
 				for(var i = 0; i<20; i++){
 					if(i<11){
-						Html.push('<th><input name="All-'+item.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"> </th>');
+						Html.push('<th style="text-align: center;"><input name="All-'+item.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"> </th>');
 					}else {
-						Html.push('<th hidden="hidden"><input name="All-'+item.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all" > </th>');
+						Html.push('<th hidden="hidden" ><input name="All-'+item.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all" > </th>');
 					}
 					
 				}
@@ -71,10 +71,10 @@ var drawChildren = function(Html, childrenList, index) {
     childrenList.forEach(function(param) {
 	HtmlModelId.push(param.modelId)
 		Html.push('<tr>');
-      Html.push('<th class="departmentClick departmentNameB" style="padding-left:' + index * 20 + 'px;">' + param.modelName + '<input type="text" value="'+param.modelId+'" class=role-model-id></th>');
+      Html.push('<th class="departmentClick departmentNameB" style="padding-left:' + index * 20 + 'px; " >' + param.modelName + '<input type="text" value="'+param.modelId+'" class=role-model-id></th>');
 		for(var i = 0; i<20; i++){
 			if(i<11){
-				Html.push('<th><input name="All-'+param.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"> </th>')
+				Html.push('<th style="text-align: center;" ><input name="All-'+param.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"> </th>')
 			}else {
 				Html.push('<th hidden="hidden"><input name="All-'+param.modelId+'" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all" hidden> </th>')
 			}

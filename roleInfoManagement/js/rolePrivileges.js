@@ -1,16 +1,15 @@
 $(function() {
-	$('.user-page').off('click').on('click',function(){
-		window.location.href='../OperatorRightsManagement/OperatorRightsManagement.html'
-
+	$('#Model').off('click').on('click', function() {
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.model-page').off('click').on('click',function(){
-		window.location.href='../ModelInfo/ModelInfo.html'
+	$('#Role').off('click').on('click', function() {
+		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.role-page').off('click').on('click',function(){
-		window.location.href='../roleInfoManagement/rolePrivileges.html'
+	$('#Managements').off('click').on('click', function() {
+		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
-	$('.group-page').off('click').on('click',function(){
-		window.location.href='../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
 	});
 	
 	selectRoleAll();
@@ -209,7 +208,7 @@ var selectRoleJurisdiction = function(roleId) {
 		contentType: 'application/json;charset=utf-8',
 		success(res) {
 
-			Html.push('<tr>');
+			Html.push('<tr style="text-align: center;">');
 			Html.push('<td><b>功能模块维护</b></td>');
 			Html.push('<td>访问</td>');
 			Html.push('<td>检索</td>');
@@ -229,10 +228,8 @@ var selectRoleJurisdiction = function(roleId) {
 
 				HtmlModelId.push(item.modelId)
 				Html.push('<tr id="a' + index + '">');
-				Html.push('<th class ="departmentClick departmentNameA"><b>' + item.modelName +
+				Html.push('<th style="text-align: center;" class ="departmentClick departmentNameA"><b>' + item.modelName +
 					'</b><input type="text" value="' + item.modelId + '" class=role-model-id></th>');
-				console.log(roleIdModel)
-				console.log(item.modelId)
 				if (roleIdModel == undefined) {
 					roleIdModel = $('.role-id-input-privileges').val();
 				}
@@ -256,18 +253,18 @@ var selectRoleJurisdiction = function(roleId) {
 							if(i<11){
 								if (Jurisdiction[i]==1) {
 									Html.push(
-										'<td pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
+										'<td style="text-align: center;" pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 										);
 								} else {
 									Html.push(
-										'<td pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" disabled="disabled"></td>'
+										'<td style="text-align: center;" pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" disabled="disabled"></td>'
 									);
 									
 								
 								}
 							}else {
 								Html.push(
-									'<td pane hidden><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
+									'<td style="text-align: center;" pane hidden><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 								);
 							}
 						
@@ -330,18 +327,18 @@ var drawChildren = function(Html, childrenList, index, roleIdModel, modelId) {
 					if(i<11){
 						if (Jurisdiction[i]==1) {
 							Html.push(
-								'<td pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
+								'<td pane style="text-align: center;"><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 								);
 						} else {
 							Html.push(
-								'<td pane><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" disabled="disabled"></td>'
+								'<td pane style="text-align: center;"><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" disabled="disabled"></td>'
 							);
 							
 						
 						}
 					}else {
 						Html.push(
-							'<td pane hidden><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
+							'<td pane hidden style="text-align: center;"><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value=""checked disabled="disabled"></td>'
 						);
 					}
 				
@@ -369,17 +366,17 @@ var selectGroupRoleId = function(roleId) {
 		contentType: 'application/json;charset=utf-8',
 		success(res) {
 			var Html = [];
-			Html.push('<tr>')
+			Html.push('<tr style="text-align: center;">')
 			Html.push('<td pane><input  type="checkbox"  lay-skin="primary" id="c_all" lay-filter="c_all" value=""></td>')
 			Html.push('<td>管理组名</td>')
 			Html.push('<td>管理组描述</td>')
 			Html.push('</tr>')
 			res.forEach(function(item, index) {
-				Html.push('<tr>')
-				Html.push('<th><input class="checkAllGroup" name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.groupId +
+				Html.push('<tr style="text-align: center;">')
+				Html.push('<th style="text-align: center;"><input class="checkAllGroup" name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.groupId +
 					'"></th>')
-				Html.push('<th>' + item.groupName + '</th>')
-				Html.push('<th>' + item.groupDescription + '</th>')
+				Html.push('<th style="text-align: center;">' + item.groupName + '</th>')
+				Html.push('<th style="text-align: center;">' + item.groupDescription + '</th>')
 				Html.push('</tr>')
 			})
 			$('.TableContent').html(Html.join(''));
@@ -630,29 +627,29 @@ var selectRoleIdCheckUser = function(sValue) {
 		success(res) {
 			var Html = [];
 			var record = 1;
-			Html.push('<tr class="role-content">')
+			Html.push('<tr style="text-align: center;" class="role-content">')
 			Html.push(
 				'<td pane><input name="Staff" type="checkbox"  lay-skin="primary" id="c_all" lay-filter="c_all"  value=""></td>')
-			Html.push('<td>序号</td>');
-			Html.push('<th class="user-name">用户名</th>');
-			Html.push('<th>关联员工</th>');
-			Html.push('<th>所在油站</th>');
-			Html.push('<th>联系电话</th>');
-			Html.push('<th>最后登录时间</th>');
-			Html.push('<th>登录次数</th>');
+			Html.push('<td style="text-align: center;">序号</td>');
+			Html.push('<th style="text-align: center;" class="user-name">用户名</th>');
+			Html.push('<th style="text-align: center;">关联员工</th>');
+			Html.push('<th style="text-align: center;">所在油站</th>');
+			Html.push('<th style="text-align: center;">联系电话</th>');
+			Html.push('<th style="text-align: center;">最后登录时间</th>');
+			Html.push('<th style="text-align: center;">登录次数</th>');
 			Html.push('</tr>')
 			res.forEach(function(item, index) {
-				Html.push('<tr class="role-content">')
+				Html.push('<tr style="text-align: center;" class="role-content">')
 				Html.push(
-					'<td pane><input class="checkAllUser" name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.userId +
+					'<td pane style="text-align: center;"><input class="checkAllUser" name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.userId +
 					'"></td>')
-				Html.push('<td>' + record + '</td>');
-				Html.push('<th class="user-name">' + item.userName + '</th>');
-				Html.push('<th>' + item.empName + '</th>');
-				Html.push('<th>' + item.departmentName + '</th>');
-				Html.push('<th>' + item.tel + '</th>');
-				Html.push('<th>' + dateFormata(item.mTime) + '</th>');
-				Html.push('<th>' + 1 + '</th>');
+				Html.push('<td style="text-align: center;">' + record + '</td>');
+				Html.push('<th style="text-align: center;" class="user-name">' + item.userName + '</th>');
+				Html.push('<th style="text-align: center;">' + item.empName + '</th>');
+				Html.push('<th style="text-align: center;">' + item.departmentName + '</th>');
+				Html.push('<th style="text-align: center;">' + item.tel + '</th>');
+				Html.push('<th style="text-align: center;">' + dateFormata(item.mTime) + '</th>');
+				Html.push('<th style="text-align: center;">' + 1 + '</th>');
 				Html.push('</tr>')
 				record++;
 			})

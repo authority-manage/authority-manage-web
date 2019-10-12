@@ -14,7 +14,7 @@
 	margin: auto;
 }
 .userNameText{
-	color: purple;
+	/* color: purple; */
 	font-size: x-small;
 }
 .user-name{
@@ -72,7 +72,7 @@
 	margin-left: 21px;
 		width: 85%;
 	height: 38px;
-	background-color:#4396ca
+
 	 ;
 }
 .left {
@@ -89,8 +89,8 @@
 
 	margin-top: 20px;
 	margin-left: 10px;
-	background-color: #4396ca;
-	height: 40px;
+	
+	height: 10px;
 	width:1550px;
 }
 .font1{
@@ -163,4 +163,24 @@
   margin-left: 70px;
   font-size: 15px;
   color: #9A9A9A;
+}
+
+#Model{
+	margin-top: -2px;
+}
+#Role{
+	margin-top: -10px;
+}
+#Managements{
+	margin-top: -10px;
+}
+#Operators{
+	margin-top: -8px;
+}
+.spacing{
+	margin-left: 70px;
+}
+/* 给js调用的(用来监听变色) */
+.selected{
+	color: blue;
 }

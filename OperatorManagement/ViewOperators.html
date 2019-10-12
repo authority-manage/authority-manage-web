@@ -10,8 +10,8 @@
 	</head>
 	<body>
 		<div class="wapper">
-			<div class="box">
-				<div class="top"></div>
+			<div class="box"><div class="top"><div id="font0"><b>查看操作人员</b></div></div>
+			<br>
 				<div class="emp_num_wapper">
 					用户名：<input type="text" id="user_name" size="20" maxlength="50" />
 				</div>
@@ -27,22 +27,32 @@
 							 value="3" />停用</label>
 					</form>
 				</div>
-				<div class="select_wapper">关联员工id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select
-					 class="relartion_user_id"></select>
+				<div class="select_wapper">关联员工:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- <select class="relartion_user_id"></select> -->
+				<input class="relartion_user_id">
 				</div>
-				<div class="c_user_wapper">创建人
-					<input type="text" name="" class="c_user" value="" />
+				<div>
+				<div class="oil_station">所在油站:
+					<input type="text" class="located_oil_station">
+				</div>
+				</div>
+				<div class="remark_wapper">备注
+					<textarea class="remark"></textarea>
 				</div>
 				<div class="c_time_wapper">创建时间
 					<input type="text" class="c_time">
 				</div>
-				<div class="m_user_wapper">最后更新人
-					<input type="text" class="m_user">
-				</div>
 				<div class="m_time_wapper">最后更新时间
 					<input type="text" class="m_time">
 				</div>
-				<div class="remark_wapper">备注<textarea class="remark"></textarea>
+				<div class="empNum">关联员工编号
+					<input type="text" class="number">
+				</div>
+				<div class="job">关联员工职务
+					<input type="text" class="post">
+				</div>
+				<div class="tel">关联员工电话
+					<input type="text" class="telephone">
 				</div>
 				<div class="btn_wapper">
 				<button

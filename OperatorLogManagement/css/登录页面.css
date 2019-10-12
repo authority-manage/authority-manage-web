@@ -37,14 +37,16 @@ div {
 
 .InputSize {
 	width: 250px;
-	height: 30px;
-	border-radius: 7px;
+	height: 40px;
+	  border-radius: 7px;
+	  border: 1px solid #DBDBDB;
 }
 
 .PasWord {
 	width: 250px;
-	height: 30px;
-	border-radius: 7px;
+	height: 40px;
+	  border-radius:7px;
+	  border: 1px solid #DBDBDB;
 }
 
 userName>i {
@@ -56,60 +58,8 @@ userName>i {
 	width: 180px;
 	height: 45px;
 	font-size: 0.8em;
-	margin-top: 50px;
-
-	margin-left: -230px
+	margin-top: 150px;
+ border: 1px solid rgba(34,214,255, 0.5);
+	margin-left: -212px;
+	border-radius:7px;
 }
-
-/* .Background{
-	position: absolute;
-	left: 1055px;
-	top: 240.5px;
-	width: 400px;
-	height: 300px;
-	
-	border-radius: 25px;
-	font-size: 1.5em;
-}
-.UPLC{
-	position: relative;
-  	left: 35px;
-  	top: 75px;
-}
-.PasWod{
-	position: relative;
-	top:  0px;
-}
-.PasWord{
-	position: relative;
-	margin-top: 5.5px;
-	width: 200px;
-	height: 44.5px;
-}
-.InputSize{
-	margin-bottom: 10px;
-	width: 200px;
-	height: 44px;
-}
-.btnbc{
-	position: relative;
-	left: 37px;
-	top: 50px;
-	height: 100px;
-	width: 300px;
-}
-.backAll{
-	position: relative;
-	width: 100px;
-	height: 40px;
-	font-size: 0.8em;
-	left: 100px;
-}
-
-
-.font{
-	position: relative;
-	left: 10px;
-	top: 10px;
-
-} */

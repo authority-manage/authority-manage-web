@@ -1,119 +1,149 @@
-$(document).ready(function(){
-	// var thisDepartmentId = '';
+$(document).ready(function() {
+	var departmentId = '';
+	var myself = '';
 	viewSuperiorDepartment();
-	$('.user-page').off('click').on('click',function(){
-		window.location.href='../OperatorRightsManagement/OperatorRightsManagement.html'
+
+	$('#browser').off('click').on('click', 'li', function() {
+
+		departmentId = $(this).attr('value');
+		// removeClass("selected");
+		// $(this).removeClass("selected");
+		$(this).addClass("selected");
+		var myself = this;
+		$('li').each(function() {
+			if (this != myself) {
+				$(this).removeClass("selected");
+			}
+		});
+		return false;
 	});
-	$('.model-page').off('click').on('click',function(){
-		window.location.href='../ModelInfo/ModelInfo.html'
+
+	$('#Model').off('click').on('click', function() {
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click',function(){
-		window.location.href='../roleInfoManagement/rolePrivileges.html'
+	$('#Role').off('click').on('click', function() {
+		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click',function(){
-		window.location.href='../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
+	$('#Managements').off('click').on('click', function() {
+		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
+	});
+
 	//点击事件跳转到员工管理页面
-	$('#EmpInfoManagement').click(function(){
-		window.location.href= "../EmpInfoManagement/EmpInfoManagement.html";
+	$('#EmpInfoManagement').click(function() {
+		window.location.href = "../EmpInfoManagement/EmpInfoManagement.html";
 	});
 	//点击事件跳转到操作人员管理页面
-	$('#Operator').click(function(){
+	$('#Operator').click(function() {
 		window.location.href = "../OperatorManagement/OperatorManagement.html";
 	});
 	//点击事件跳转到日志管理
-	$('#log').click(function(){
+	$('#log').click(function() {
 		window.location.href = "../OperatorLogManagement/login.html";
 	});
-	
+
 	//点击事件跳转到日志管理
-	$('#Rights').click(function(){
+	$('#Rights').click(function() {
 		window.location.href = "../ModelInfo/ModelInfo.html";
 	});
-	
-	 $('.MenuList li').off('click').on('click', function() {
-	 	$('.MenuList li').removeClass('active');
-	 	$(this).addClass('active');
-	 	if ($('.active > .fa-home').parents().is($('.active'))) {
-	 		window.location.href = "../EmpInfoManagement/EmpInfoManagement.html";
-	 	}
-	 	if ($('.active > .fa-user').parents().is($('.active'))) {
-	 		window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
-	 	}
-	 	if ($('.active > .fa-cog').parents().is($('.active'))) {
-	 		window.location.href = "../OperatorLogManagement/login.html";
-	 	}
-	 	if ($('.active > .fa-envelope').parents().is($('.active'))) {
-	 		window.location.href = "../OperatorManagement/OperatorManagement.html";
-	 	}
-	 	
-	 	if ($('.active > .fa-file-text-o').parents().is($('.active'))) {
-	 		window.location.href = "../ModelInfo/ModelInfo.html";
-	 	}
-	 	
-	 });
-	 $('.mail').click(function() {
-	 	alert('暂无功能，待实现');
-	 });
-	 $('#logInAndOut').click(function() {
-	 	var out = confirm('是否确认注销？');
-	 	if (out) {
-	 		window.location.href = "../registerPage.html";
-	 		alert('注销成功！');
-	 	}
-	 });
+
+	$('.MenuList li').off('click').on('click', function() {
+		$('.MenuList li').removeClass('active');
+		$(this).addClass('active');
+		if ($('.active > .fa-home').parents().is($('.active'))) {
+			window.location.href = "../EmpInfoManagement/EmpInfoManagement.html";
+		}
+		if ($('.active > .fa-user').parents().is($('.active'))) {
+			window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
+		}
+		if ($('.active > .fa-cog').parents().is($('.active'))) {
+			window.location.href = "../OperatorLogManagement/login.html";
+		}
+		if ($('.active > .fa-envelope').parents().is($('.active'))) {
+			window.location.href = "../OperatorManagement/OperatorManagement.html";
+		}
+
+		if ($('.active > .fa-file-text-o').parents().is($('.active'))) {
+			window.location.href = "../ModelInfo/ModelInfo.html";
+		}
+
+	});
+	$('.mail').click(function() {
+		alert('暂无功能，待实现');
+	});
+	$('#logInAndOut').click(function() {
+		var out = confirm('是否确认注销？');
+		if (out) {
+			window.location.href = "../registerPage.html";
+			alert('注销成功！');
+		}
+	});
 	//点击事件跳转添加弹出层
-	$('#addDepartment').click(function(){
+	$('#addDepartment').click(function() {
 		layuiAddWindowDepartment();
 	});
-	
+
 	//点击事件跳转修改弹出层
-	$('#updateDepartment').click(function(){
-		// if(thisDepartmentId != ''){
-		// 	layuiModifyWindowDepartment(thisDepartmentId);
-		// }
-		layuiModifyWindowDepartment();
+	$('#updateDepartment').click(function() {
+		if (departmentId == '' || departmentId == undefined) {
+			alert('请选择油站');
+
+		} else {
+			layuiModifyWindowDepartment(departmentId);
+		}
 	});
-	
+
 	//点击事件跳转查看弹出层
-	$('#viewDepartment').click(function(){
-		layuiViewWindowDepartment();
+	$('#viewDepartment').click(function() {
+		if (departmentId == '' || departmentId == undefined) {
+			alert('请选择油站');
+
+		} else {
+			layuiViewWindowDepartment(departmentId);
+		}
 	});
-	
+
 	//点击事件删除
-	$('#deleteDepartment').click(function(){
-		deleteDepartmentInfoByDepartmentId();
+	$('#deleteDepartment').click(function() {
+		if (departmentId == '' || departmentId == undefined) {
+			alert('请选择油站');
+		} else {
+			deleteDepartmentInfoByDepartmentId(departmentId);
+		}
 	});
-	
+
 });
 
+
 //查找油站
-var viewSuperiorDepartment = function(){
+var viewSuperiorDepartment = function() {
 	// var parentId;
 	$.ajax({
-		url : 'http://'+ip+':8888/manage_system/department/selectAllForParentIdDepartmentId',
-		data : {},
-		dataType : 'json',
-		type : 'GET',
-		contentType :'application/json;charset=utf-8',
+		url: 'http://' + ip + ':8888/manage_system/department/selectAllForParentIdDepartmentId',
+		data: {},
+		dataType: 'json',
+		type: 'GET',
+		contentType: 'application/json;charset=utf-8',
 		success(res) {
 			console.log(res);
 			var Html = [];
-			Html.push('<li>'+'所有油站');
+			Html.push('<li>' + '所有油站');
 			//所有油站的子类
 			Html.push('<ul>');
 			// if(res.data > 0){
 			// 	
 			// }
-			if(res.data != null){
+			if (res.data != null) {
 				console.log(res);
-				res.data.forEach(function(item){
-					if(item.isDel = "0"){
+				res.data.forEach(function(item) {
+					if (item.isDel = "0") {
 						//查询父类油站
-						Html.push('<li class="father" value="'+item.departmentId+'">'+item.departmentName);
+						Html.push('<li class="father" value="' + item.departmentId + '">' + item.departmentName);
 						//调用递归方法查询子类必须用父类的<li>标签包着所有子类这是treeview的格式
 						console.log(item.departmentName);
-						recursionHtmlChildrenList(Html,item.childrenList);
+						recursionHtmlChildrenList(Html, item.childrenList);
 						Html.push('</li>');
 					}
 				});
@@ -125,75 +155,75 @@ var viewSuperiorDepartment = function(){
 			//使用插件
 			$("#browser").treeview({
 				toggle: function() {
-					
+
 				}
-			});	
+			});
 		},
-	});	
+	});
 }
 
 
 //父子级递归列表
-var recursionHtmlChildrenList = function(Html,childrenList){
+var recursionHtmlChildrenList = function(Html, childrenList) {
 	//判断父类是否有子类
 	if (childrenList && childrenList.length > 0) {
 		//循环子类
-		childrenList.forEach(function(param){
+		childrenList.forEach(function(param) {
 			//子类必须再次用<ul>标签<li>才能为上面父类的子类
 			Html.push('<ul>');
 			//push到Html数组里
-			Html.push('<li value="'+param.departmentId+'">'+param.departmentName);
+			Html.push('<li value="' + param.departmentId + '">' + param.departmentName);
 			//判断使用递归方法
 			if (param.childrenList && param.childrenList.length > 0) {
-				recursionHtmlChildrenList(Html,param.childrenList);
+				recursionHtmlChildrenList(Html, param.childrenList);
 			}
 			Html.push('</li>');
 			Html.push('</ul>');
 		});
 	}
-	
+
 }
 
 //逻辑删除（主方法）通过departmentId来修改
-var deleteDepartmentInfoByDepartmentId = function(){
-	alert('请点击要选择修改的部门');
-	$('li').click(function(){
-		var departmentId = $(this).attr("value");
-		console.log(departmentId);
-		recursionDeleteDepartmentInfoByDepartmentId(departmentId);
-		var department = $(this).find('ul').find('li');
-		if(department){
-			department.each(function(index,obj){
-				var arrDepartmentId = $(obj).attr("value");
-				console.log(arrDepartmentId);
-				recursionDeleteDepartmentInfoByDepartmentId(arrDepartmentId);
-			})
-		}
-		$("li").unbind();//解除点击的绑定
-	});
+var deleteDepartmentInfoByDepartmentId = function(param) {
+	// alert('请点击要选择删除的部门');
+	// $('li').click(function(){
+	var departmentId = param;
+	console.log(departmentId);
+	recursionDeleteDepartmentInfoByDepartmentId(departmentId);
+	var department = $(this).find('ul').find('li');
+	if (department) {
+		department.each(function(index, obj) {
+			var arrDepartmentId = $(obj).attr("value");
+			console.log(arrDepartmentId);
+			recursionDeleteDepartmentInfoByDepartmentId(arrDepartmentId);
+		})
+	}
+	$("li").unbind(); //解除点击的绑定
+	// });
 }
 
 //逻辑删除ajax（修改）
-var recursionDeleteDepartmentInfoByDepartmentId = function(departmentId){
+var recursionDeleteDepartmentInfoByDepartmentId = function(departmentId) {
 	var data = {
-		"departmentId" :departmentId
+		"departmentId": departmentId
 	}
 	console.log(data);
 	$.ajax({
-		url:'http://'+ip+':8888/manage_system/department/delete',
-		data:JSON.stringify(data),
-		dataType:'json',
-		type:'POST',
-		async:false,
-		contentType:'application/json;charset=utf-8',
-		success(res){
-			if(res){
+		url: 'http://' + ip + ':8888/manage_system/department/delete',
+		data: JSON.stringify(data),
+		dataType: 'json',
+		type: 'POST',
+		async: false,
+		contentType: 'application/json;charset=utf-8',
+		success(res) {
+			if (res) {
 				alert("删除成功了呀");
 				var department = $(this).find('.father').find('li');
 				viewSuperiorDepartment();
 			}
 		},
-		error(e){
+		error(e) {
 			alert("删除失败");
 		}
 	});
@@ -202,60 +232,62 @@ var recursionDeleteDepartmentInfoByDepartmentId = function(departmentId){
 
 
 //添加弹出层
-var layuiAddWindowDepartment = function (){
-	layui.use("layer",function(){
+var layuiAddWindowDepartment = function() {
+	layui.use("layer", function() {
 		var layer = layui.layer;
 		layer.open({
 			type: 2 //Page层类型
-			,area: ['520px', '690px']
-			,title: ['添加页面','background-color: #00BFFF;text-align: center;font-size: 25px;font-weight: bold;']
-			,shade: 0.6 //遮罩透明度
-			,maxmin: true //允许全屏最小化
-			,content: '../DepartmentInfoManagement/addPage.html'
-		});    
+				,
+			closeBtn: 0,
+			area: ['520px', '650px'],
+			title: ['添加页面', 'background-color: #669df6;text-align: center;font-size: 25px;font-weight: bold;']
+				// ,shade: 0.6 //遮罩透明度
+				// ,maxmin: true //允许全屏最小化
+				,
+			content: '../DepartmentInfoManagement/addPage.html'
+		});
 	});
 }
 
 
 //修改弹出层
-var layuiModifyWindowDepartment = function (param){
-	alert('请点击要选择修改的部门');
-	$("li").click(function(){
-		var departmentId = $(this).attr("value");
-		// var departmentId = param;
-		// console.log(departmentId);
-		layui.use("layer",function(){
-			var layer = layui.layer;
-			layer.open({
-				type: 2 //Page层类型
-				,area: ['520px', '690px']
-				,title: ['修改页面','background-color: #00BFFF;text-align: center;font-size: 25px;font-weight: bold;']
-				,shade: 0.6 //遮罩透明度
-				,maxmin: true //允许全屏最小化
-				,content: '../DepartmentInfoManagement/modifyPage.html?departmentId='+ departmentId
-			});    
+var layuiModifyWindowDepartment = function(param) {
+	var departmentId = param;
+	layui.use("layer", function() {
+		var layer = layui.layer;
+		layer.open({
+			type: 2 //Page层类型
+				,
+			closeBtn: 0,
+			area: ['520px', '650px'],
+			title: ['修改页面', 'background-color: #669df6;text-align: center;font-size: 25px;font-weight: bold;']
+				// ,shade: 0.6 //遮罩透明度
+				// ,maxmin: true //允许全屏最小化
+				,
+			content: '../DepartmentInfoManagement/modifyPage.html?departmentId=' + departmentId
 		});
-		$("li").unbind();//解除点击的绑定
-	})
+	});
+	$("li").unbind(); //解除点击的绑定
 }
 
 //查看弹出层
-var layuiViewWindowDepartment = function (){
-	alert('请点击要选择修改的部门');
-	$("li").click(function(){
-		var departmentId = $(this).attr("value");
-		layui.use("layer",function(){
-			var layer = layui.layer;
-			layer.open({
-				type: 2 //Page层类型
-				,area: ['520px', '670px']
-				,title: ['查看页面','background-color: #00BFFF;text-align: center;font-size: 25px;font-weight: bold;']
-				,shade: 0.6 //遮罩透明度
-				,maxmin: true //允许全屏最小化
-				,btn: ["确认","取消"]
-				,content: '../DepartmentInfoManagement/viewPage.html?departmentId='+ departmentId
-			});    
+var layuiViewWindowDepartment = function(param) {
+	var departmentId = param;
+	layui.use("layer", function() {
+		var layer = layui.layer;
+		layer.open({
+			type: 2 //Page层类型
+				,
+			closeBtn: 0,
+			area: ['520px', '650px'],
+			title: ['查看页面', 'background-color: #669df6;text-align: center;font-size: 25px;font-weight: bold;'],
+			shade: 0.6 //遮罩透明度
+				,
+			maxmin: true //允许全屏最小化
+				// ,btn: ["确认","取消"]
+				,
+			content: '../DepartmentInfoManagement/viewPage.html?departmentId=' + departmentId
 		});
-		$("li").unbind();//解除点击的绑定
-	})
+	});
+	$("li").unbind(); //解除点击的绑定
 }

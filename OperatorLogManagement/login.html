@@ -82,13 +82,31 @@
 						<span>></span>
 					</li>
 					</div>
-					<a href="javascript:void(0)" class="list-font model-page">|功能模块维护</a>
-					          <br />
-					          <a href="javascript:void(0)" class="list-font role-page">|角色权限管理</a>
-					          <br />
-					          <a href="javascript:void(0)" class="list-font group-page">|管理组(权限组)权限管理</a>
-					          <br />
-					          <a href="javascript:void(0)" class="list-font user-page">|操作人员权限管理</a>
+					
+					<div id="Model">
+						<li>
+								<span class="spacing">|功能模块管理</span>
+								<span>></span>
+						</li>
+					</div>
+					<div id="Role">
+							<li>
+								<span class="spacing">|角色权限管理</span>
+								<span>></span>
+							</li>
+					</div>
+					<div id="Managements">
+							<li>
+								<span class="spacing">|管理组(权限组)权限管理</span>
+								<span>></span>
+							</li>
+					</div>
+					<div id="Operators">
+							<li>
+								<span class="spacing">|操作人员权限管理</span>
+								<span>></span>
+							</li>
+					</div>
 				</ul>
 			</div>
 		</div>
@@ -98,7 +116,7 @@
 				<div class="ListTitle">首页>日志一览</div>
 				<div class="InquiryList layui-form">
 					<div class="layui-form-item layui-inline">
-						<label class="layui-form-label">员工编号:</label>
+						<label class="layui-form-label">用户名:</label>
 						<div class="layui-input-block">
 							<input type="text" name="title" required placeholder="请输入编号" autocomplete="off" class="layui-input name" id="spinner">
 						</div>
@@ -153,10 +171,10 @@
 						<thead>
 							<tr>
 								<th pane>
-									<input name="All" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all">
+									<input name="All" type="checkbox" lay-skin="primary" lay-filter="Staff" id="allCheckBox" value="all">
 								</th>
 								<th>序号</th>
-								<th>操作人员用户名</th>
+								<th>用户名</th>
 								<th>操作类型</th>
 								<th>操作描述</th>
 								<th>操作时间</th>

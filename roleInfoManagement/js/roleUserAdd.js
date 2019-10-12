@@ -1,3 +1,4 @@
+
 $(function() {
 	var thisUrl = decodeURI(document.URL);
 	var roleId = thisUrl.split('?')[1].split('=')[1];
@@ -18,12 +19,11 @@ $(function() {
 			
 	})
 $('.addRoleUser').off('click').on('click', function() {
-	var index = 1;
+	var index = 0;
 	$.each($("[name='Staff']:checked"),function(i,val){//第一个参数表示索引下标，第二个参数表示当前索引元素
 			var userId = val.value;
 			
 			var userRoleId = "";
-			console.log(userId);
 			$.ajax({
 				url: 'http://'+ip+':8888/manage_system/RoleJRoleModel/selectRoleIdRoleUser',
 				data: {'userId':userId},
@@ -33,26 +33,25 @@ $('.addRoleUser').off('click').on('click', function() {
 					console.log(res);
 					if(res.data[0].roleId == null){
 						updateRoleIdByUserId(userId,roleId);
-						alert('添加成功')
 						index++;
 					}else{
 						var newRoleId = res.data[0].roleId+','+roleId;
 					updateRoleIdByUserId(userId,newRoleId);
-					alert('添加成功')
 					index++;
 					}
 				}
 			})
 				
 	});
-		if(index>1){
+		if(index>=1){
 			alert('添加成功')
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.layer.close(index);//关闭当前页
+			var indexa = parent.layer.getFrameIndex(window.name);
+			parent.layer.close(indexa);//关闭当前页
 			parent.location.reload()
 			}else{
-				var index = parent.layer.getFrameIndex(window.name);
-				parent.layer.close(index);//关闭当前页
+				alert('添加失败')
+				var indexa = parent.layer.getFrameIndex(window.name);
+				parent.layer.close(indexa);//关闭当前页
 				parent.location.reload()
 				}
 	})
@@ -72,6 +71,7 @@ $('.addRoleUser').off('click').on('click', function() {
 								data: '',
 								dataType: 'json',
 								type: 'GET',
+								async: false,
 								success: function(res) {
 									
 									var html = [];
@@ -124,8 +124,8 @@ $('.addRoleUser').off('click').on('click', function() {
 										
 										Html.push('<tr class="role-content">')
 										Html.push(
-											'<th><input class = "checboxUserSelect" name="Staff" type="checkbox"  lay-skin=primary lay-filter=checkboxIsSelected lay-filter="Staff" value="' + item.userId +'"></th>')
-										Html.push('<th class="user-name">' + item.userName + '</th>');
+											'<th style="text-align: center;"><input class = "checboxUserSelect" name="Staff" type="checkbox"  lay-skin=primary lay-filter=checkboxIsSelected lay-filter="Staff" value="' + item.userId +'"></th>')
+										Html.push('<th class="user-name" style="text-align: center;">' + item.userName + '</th>');
 										if (item.status == '1') {
 											item.status = '有效';
 										}
@@ -135,11 +135,12 @@ $('.addRoleUser').off('click').on('click', function() {
 										if (item.status == '3') {
 											item.status = '停用';
 										}
-										Html.push('<th>' + item.status + '</th>');
-										Html.push('<th>' + item.empName + '</th>');
-										Html.push('<th>' + item.departmentName + '</th>');
-										Html.push('<th>' + item.remark + '</th>');
-										Html.push('<th>' + dateFormat(item.mTime) + '</th>');
+										Html.push('<th style="text-align: center;">' + item.status + '</th>');
+										Html.push('<th style="text-align: center;">' + item.empName + '</th>');
+										Html.push('<th style="text-align: center;">' + item.departmentName + '</th>');
+										Html.push('<th style="text-align: center;">' + item.remark + '</th>');
+										Html.push('<th style="text-align: center;">' + dateFormat(item.mTime) + '</th>');
+										Html.push('<th style="text-align: center;">' + 1 + '</th>');
 										Html.push('</tr>')
 										record++;
 									})

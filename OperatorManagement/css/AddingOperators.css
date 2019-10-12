@@ -1,26 +1,31 @@
 
 .reamrk{
+	margin-left: 50px;
 	width: 100px;
 	height: 45px;
 }
+#font0{
+	font-size: 20px;
+	padding: 5px 180px;
+}
 .top {
+
+	background-color: #669df6;
+	height: 35px;
 	width: 500px;
-	height: 50px;
-	background-color: #40AFFE;
-	border-radius: 25px 25px 0 0;
+	border-top-left-radius: 20em;
+	border-top-right-radius: 20em;
 }
 
 .wapper{
-	border-radius: 25px;
-	margin-left: 500px;
-	position: absolute;
 	width: 500px;
-	height: 500px;
+	height: 600px;
+	position: absolute;
 	top: 50%;
 	left: 50%;
-	border-top: none;
-	margin-left: -252px;
-	margin-top: -251px;
+	margin: -300px 0 0 -250px;
+	border-radius: 35px;
+	border-color:  #dadada;
 } 
 #user_name,
 #password,
@@ -46,15 +51,15 @@
 	top: 50px;
 	width: 400px;
 	height: 30px;
-	margin-top: 25px;
+	margin-top: 33px;
 	margin-left: 80px;
 }
 .box{
 	width: 500px;
-	height: 500px;
+	height: 600px;
 	position: absolute;
 	top: 50%;
-	margin-top: -251px;
+	margin-top: -300px;
 }
 .btn_wapper{	
 	top: 50px;
@@ -65,9 +70,11 @@
 }
 .back,
 .ok {
-	height: 30px;
-	width: 100px;
-	border-radius: 5px;
-	border: none;
-	background-color: #1E9FFF;
+	width: 90px;
+	height: 32px;
+	margin-top: 25px;
+	margin-left: 15px;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
 }

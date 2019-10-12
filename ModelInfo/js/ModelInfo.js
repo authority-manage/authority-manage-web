@@ -68,18 +68,20 @@ $(function() {
 	$("#Operator").click(function() {
 		window.location.href = "../OperatorManagement/OperatorManagement.html";
 	});
-	$('.user-page').off('click').on('click',function(){
-		window.location.href='../OperatorRightsManagement/OperatorRightsManagement.html'
+	
+	$('#Model').off('click').on('click', function() {
+		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.model-page').off('click').on('click',function(){
-		window.location.href='../ModelInfo/ModelInfo.html'
+	$('#Role').off('click').on('click', function() {
+		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.role-page').off('click').on('click',function(){
-		window.location.href='../roleInfoManagement/rolePrivileges.html'
+	$('#Managements').off('click').on('click', function() {
+		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
-	$('.group-page').off('click').on('click',function(){
-		window.location.href='../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
 	});
+	
 });
 var deleteModelInfo = function() {
 	var Reconfirm = confirm("是否删除");
@@ -108,7 +110,12 @@ var selectAllModelInfoList = function() {
 		success(res) {
 			treeList(res.data, 0, 1);
 			$('.modelListClick').click(function() {
-				modelId = $(this).find('.modelList').val();
+				// modelId = $(this).find('.modelList').val();
+				// $('#fontChoice').text("当前选择:" + $(this).text());
+				
+				// modelId = $(this).find('.modelList').val();
+				modelId = $(this).val();
+				$(this).addClass("selected").siblings().removeClass("selected");	// 选中变色
 				$('#fontChoice').text("当前选择:" + $(this).text());
 			})
 		}
@@ -120,12 +127,13 @@ var treeList = function(data, father, index) {
 	data.forEach(function(param) {
 		if (father == param.parentId) {
 			if (father == '0') {
-				Html.push('<b><li class="modelListClick" style="margin-top:10px;">' + param.modelName +
-					'<input type="hidden" name="modelList" class="modelList" value =' + param.modelId + '>' + '</li></b>');
+				// Html.push('<b><li class="modelListClick" style="margin-top:10px;">' + param.modelName +
+				// 	'<input type="hidden" name="modelList" class="modelList" value =' + param.modelId + '>' + '</li></b>');
+					Html.push('<li class="modelListClick" style="margin-top:10px; font-weight: bold;" value="' + param.modelId + '">' + param.modelName + '</li>');
 			} else {
-
-				Html.push('<li class="modelListClick" style="margin-left:' + index * 7 + 'px;">' + param.modelName +
-					'<input type="hidden" name="modelList" class="modelList" value =' + param.modelId + '>' + '</li>');
+				// Html.push('<li class="modelListClick" style="margin-left:' + index * 7 + 'px;">' + param.modelName +
+				// 	'<input type="hidden" name="modelList" class="modelList" value =' + param.modelId + '>' + '</li>');
+				Html.push('<li class="modelListClick" style="margin-left:' + index * 7 + 'px;" value="' + param.modelId + '">' + param.modelName + '</li>');
 			}
 			treeList(data, param.modelId, index);
 		}

@@ -4,19 +4,20 @@ $(document).ready(function() {
 	$('.mail').click(function() {
 		alert('暂无功能，待实现');
 	});
-	$('.user-page').off('click').on('click', function() {
-		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
-	});
-	$('.model-page').off('click').on('click', function() {
+	
+	$('#Model').off('click').on('click', function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click', function() {
+	$('#Role').off('click').on('click', function() {
 		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click', function() {
+	$('#Managements').off('click').on('click', function() {
 		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
-
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
+	});
+	
 	$('.logInAndOut').click(function() {
 		var out = confirm('是否确认注销？');
 		if (out) {
@@ -231,21 +232,21 @@ var openOperatorRoleList = function(userId) {
 		'<col width="1%">' +
 		'</colgroup>' +
 		'<thead class="table-head">' +
-		'<tr>' +
-		'<th>功能模块维护</th>' +
-		'<th>访问</th>' +
-		'<th>检索</th>' +
-		'<th>新建</th>' +
-		'<th>修改</th>' +
-		'<th>查看</th>' +
-		'<th>删除</th>' +
-		'<th>审批</th>' +
-		'<th>打印</th>' +
-		'<th>下载</th>' +
-		'<th>生成报表</th>' +
-		'<th>发送消息</th>' +
-		'<th>预留扩展</th>' +
-		'<th>...</th>' +
+		'<tr style="text-align: center;"	> ' +
+		'<th style="text-align: center;">功能模块维护</th>' +
+		'<th style="text-align: center;">访问</th>' +
+		'<th style="text-align: center;">检索</th>' +
+		'<th style="text-align: center;">新建</th>' +
+		'<th style="text-align: center;">修改</th>' +
+		'<th style="text-align: center;">查看</th>' +
+		'<th style="text-align: center;">删除</th>' +
+		'<th style="text-align: center;">审批</th>' +
+		'<th style="text-align: center;">打印</th>' +
+		'<th style="text-align: center;">下载</th>' +
+		'<th style="text-align: center;">生成报表</th>' +
+		'<th style="text-align: center;">发送消息</th>' +
+		'<th style="text-align: center;">预留扩展</th>' +
+		'<th style="text-align: center;">...</th>' +
 		'</tr>' +
 		'</thead>' +
 		'<tbody class="TableContent  operator-role-list-body" >' +
@@ -280,18 +281,18 @@ var getModelTreeData = function(userId) {
 				var html = []
 
 				res.data.forEach(function(item) {
-					html.push('<tr>');
+					html.push('<tr style="text-align: center;">');
 					html.push('<th>' + item.modelName + '</th>');
 					var str = item.authorization[0];
 
 					for (var i = 0; i < str.length - 9; i++) {
 						if (str.charAt(i) == '1') {
-							html.push('<th><input name="All-' + item.modelId +
+							html.push('<th style="text-align: center;"><input name="All-' + item.modelId +
 								'" type="checkbox" lay-skin="primary" lay-filter="model" value="1"checked><input type="text" class="hiden modelId" value="' +
 								item.modelId + '"/> </th>');
 						}
 						if (str.charAt(i) == '0') {
-							html.push('<th><input name="All-' + item.modelId +
+							html.push('<th style="text-align: center;" ><input name="All-' + item.modelId +
 								'" type="checkbox" lay-skin="primary" lay-filter="model" value="1"><input type="text" class="hiden modelId" value="' +
 								item.modelId + '"/> </th>');
 						}
@@ -310,7 +311,7 @@ var getModelTreeData = function(userId) {
 				checkBoxRefresh();
 			} else {
 				html.push(
-					'<tr><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td></tr>'
+					'<tr style="text-align: center;"><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td><td>无</td></tr>'
 				);
 				$('.operator-role-list-body').html(html.join(''));
 			}
@@ -325,17 +326,17 @@ var drawModelTree = function(Html, childrenList, index) {
 		index++;
 		childrenList.forEach(function(param) {
 
-			Html.push('<tr>');
+			Html.push('<tr style="text-align: center;">');
 			Html.push('<th style="padding-left:' + index * 15 + 'px">' + param.modelName + '</th>');
 			var str = param.authorization[0];
 			for (var i = 0; i < str.length - 9; i++) {
 				if (str.charAt(i) == '1') {
-					Html.push('<th><input name="All-' + param.modelId +
+					Html.push('<th style="text-align: center;"><input name="All-' + param.modelId +
 						'" type="checkbox" lay-skin="primary" lay-filter="model" value="1"checked><input type="text" class="hiden modelId" value="' +
 						param.modelId + '"/> </th>');
 				}
 				if (str.charAt(i) == '0') {
-					Html.push('<th><input name="All-' + param.modelId +
+					Html.push('<th style="text-align: center;"><input name="All-' + param.modelId +
 						'" type="checkbox" lay-skin="primary" lay-filter="model" value="1"><input type="text" class="hiden modelId" value="' +
 						param.modelId + '"/> </th>');
 				}
@@ -368,11 +369,11 @@ var openRolePage = function(userId) {
 		'</colgroup>' +
 		'<thead class="table-head">' +
 		'<tr>' +
-		'<th pane>' +
+		'<th pane style="text-align: center;">' +
 		'<input name="role_name" type="checkbox" lay-skin="primary" lay-filter="rolePage" value="all" class="head">' +
 		'</th>' +
-		'<th>角色名</th>' +
-		'<th>角色描述</th>' +
+		'<th style="text-align: center;">角色名</th>' +
+		'<th style="text-align: center;">角色描述</th>' +
 		'<th class ="role_id hiden">角色Id</th>' +
 		'</tr>' +
 		'</thead>' +
@@ -400,11 +401,11 @@ var openGroupPage = function(userId) {
 		'</colgroup>' +
 		'<thead class="table-head">' +
 		'<tr>' +
-		'<th pane>' +
+		'<th pane style="text-align: center;">' +
 		'<input name="role_name" type="checkbox" lay-skin="primary" lay-filter="groupPageList" value="all" class="head">' +
 		'</th>' +
-		'<th>管理组名</th>' +
-		'<th>组描述</th>' +
+		'<th style="text-align: center;">管理组名</th>' +
+		'<th style="text-align: center;">组描述</th>' +
 		'<th class ="group_id hiden">组Id</th>' +
 		'</tr>' +
 		'</thead>' +
@@ -455,7 +456,6 @@ var selectDepartmentNameAndEmpNameLists = function() {
 				var userId = $('.user-name').val();
 				var userName = $('.userNameText')[0].innerText;
 
-
 				document.getElementById("ChoiceUserName").innerHTML = '所选操作人员：' + userName +
 					'<input type="hidden" name="" id="" class="userId" value="' + userId + '" />';
 				$('.typeAdd').val('role');
@@ -466,9 +466,9 @@ var selectDepartmentNameAndEmpNameLists = function() {
 				});
 				$('.user-name-click').click(function() {
 					var userId = $(this).find('.user-name').val();
-					var userName = $(this).text();
-					$('.user-name-click').find('.userNameText').removeClass('check');
-					$(this).find(".userNameText").addClass('check')
+					var userName = $(this).text();	
+					$('.user-name-click').find('.userNameText').removeClass('selected');
+					$(this).find(".userNameText").addClass('selected');
 					document.getElementById("ChoiceUserName").innerHTML = '所选操作人员：' + userName +
 						'<input type="hidden" name="" id="" class="userId" value="' + userId + '" />';
 					$('.typeAdd').val('role');
@@ -568,7 +568,7 @@ var getRoleIdByUserId = function(userId, type) {
 		dataType: 'json',
 		type: 'GET',
 		success: function(res) {
-
+		console.log(res);
 			if (res.data) {
 				if (type == 'role') {
 					viewUserInfoRoleInfoByUserId(res.data);
@@ -655,12 +655,12 @@ var openAddGroupPage = function(userId) {
 			'    <col width="40%">	' +
 			' </colgroup>' +
 			' <thead>' +
-			'  <tr>' +
-			'   <th pane>' +
+			'  <tr style="text-align: center;">' +
+			'   <th pane style="text-align: center;">' +
 			'      <input name="group_add_name" type="checkbox"   lay-skin="primary" lay-filter="groupAdd" value="all">' +
 			'    </th>' +
-			'    <th>管理组名</th>' +
-			'    <th>管理组描述</th>	' +
+			'    <th style="text-align: center;">管理组名</th>' +
+			'    <th style="text-align: center;">管理组描述</th>	' +
 			'	<th class="group_id hiden">Id</th>' +
 			'   </tr>' +
 			'</thead>' +
@@ -668,9 +668,9 @@ var openAddGroupPage = function(userId) {
 			'</tbody>' +
 			'</table>' +
 			'</div>' +
-			'<div class="btn-jump-wapper">' +
-			'<button class ="addUserGroupInfoOk layui-btn layui-btn-primary">确定</button>' +
-			'<button class ="Cancle layui-btn layui-btn-primary">取消</button>' +
+			'<div class="btn-jump-wapper" style ="width:500px">' +
+			'<button class ="addUserGroupInfoOk layui-btn layui-btn-primary" style="float:left; margin-left:250px;margin-top:40px">确定</button>' +
+			'<button class ="Cancle layui-btn layui-btn-primary"  style="margin-top:40px ;margin-left:20px;">取消</button>' +
 			'</div>',
 		success: function() {
 			selectGroupInfoNoAddGroupInfo(userId);
@@ -744,22 +744,22 @@ var openAddRolePage = function(userId) {
 			'    <col width="40%">	' +
 			' </colgroup>' +
 			' <thead>' +
-			'  <tr>' +
-			'   <th pane>' +
+			'  <tr style="text-align: center;">' +
+			'   <th pane style="text-align: center;"> ' +
 			'      <input name="role_name" type="checkbox"  lay-skin="primary" lay-filter="roleAdd" value="all">' +
 			'    </th>' +
-			'    <th>角色名</th>' +
-			'    <th>角色概述</th>	' +
-			'	<th class="role_id hiden">角色Id</th>' +
+			'    <th style="text-align: center;">角色名</th>' +
+			'    <th style="text-align: center;">角色概述</th>	' +
+			'	<th class="role_id hiden" style="text-align: center;">角色Id</th>' +
 			'   </tr>' +
 			'</thead>' +
 			'<tbody class="TableContent list">' +
 			'</tbody>' +
 			'</table>' +
 			'</div>' +
-			'<div class="btn-jump-wapper">' +
-			'<button class ="addUserRoleIsOk layui-btn layui-btn-primary">确定</button>' +
-			'<button class ="Cancle layui-btn layui-btn-primary">取消</button>' +
+			'<div class="btn-jump-wapper " style ="width:500px">' +
+			'<button class ="addUserGroupInfoOk layui-btn layui-btn-primary" style="float:left; margin-left:250px;margin-top:40px">确定</button>' +
+			'<button class ="Cancle layui-btn layui-btn-primary"  style="margin-top:40px ;margin-left:20px;">取消</button>' +
 			'</div>',
 		success: function() {
 			// selectAllRoleInfoList();
@@ -989,11 +989,11 @@ var viewUserInfoRoleInfoByUserId = function(data) {
 					});
 				} else {
 					var html = [];
-					html.push('<tr>');
-					html.push('<th>无</th>');
-					html.push('<th>无</th>');
-					html.push('<th>无</th>');
-					html.push('<tr>');
+					html.push('<tr style="text-align: center;">');
+					html.push('<th style="text-align: center;">无</th>');
+					html.push('<th style="text-align: center;">无</th>');
+					html.push('<th style="text-align: center;">无</th>');
+					html.push('</tr>');
 					$('.role-list-body').html(html.join(''));
 					checkBoxRefresh();
 				}
@@ -1012,24 +1012,24 @@ var tableDrawingGroupInfo = function(data, check) {
 
 	if (check == 'groupPageList') {
 		data.forEach(function(item) {
-			html.push('<tr>');
+			html.push('<tr style="text-align: center;">');
 			html.push(
-				'<th><input name="group_page_name" type="checkbox"  lay-skin="primary" lay-filter="groupPageList" class="Choice-groupPage-name" value="' +
+				'<th style="text-align: center;"><input name="group_page_name" type="checkbox"  lay-skin="primary" lay-filter="groupPageList" class="Choice-groupPage-name" value="' +
 				item.groupId + '"></th>');
-			html.push('<th>' + item.groupName + '</th>');
-			html.push('<th>' + item.groupDescription + '</th>');
+			html.push('<th style="text-align: center;">' + item.groupName + '</th>');
+			html.push('<th >' + item.groupDescription + '</th>');
 			html.push('<th class="group_id hiden">' + item.groupId + '</th>');
 			html.push('</tr>');
 		});
 	}
 	if (check == "groupAddPage") {
 		data.forEach(function(item) {
-			html.push('<tr>');
+			html.push('<tr style="text-align: center;">');
 			html.push(
-				'<th><input name="group_add_name" type="checkbox"  lay-skin="primary" lay-filter="groupAdd" class="Choice-groupAdd-name" value="' +
+				'<th style="text-align: center;"><input name="group_add_name" type="checkbox"  lay-skin="primary" lay-filter="groupAdd" class="Choice-groupAdd-name" value="' +
 				item.groupId + '"></th>');
-			html.push('<th>' + item.groupName + '</th>');
-			html.push('<th>' + item.groupDescription + '</th>');
+			html.push('<th style="text-align: center;">' + item.groupName + '</th>');
+			html.push('<th style="text-align: center;">' + item.groupDescription + '</th>');
 			html.push('<th class="group_id hiden">' + item.groupId + '</th>');
 			html.push('</tr>');
 		});
@@ -1043,25 +1043,25 @@ var tableDrawingRoleInfo = function(data, check) {
 	var html = [];
 	if (check == 'roleAdd') {
 		data.forEach(function(item) {
-			html.push('<tr>');
+			html.push('<tr style="text-align: center;">');
 			html.push(
-				'<th><input name="role_name" type="checkbox"  lay-skin="primary" lay-filter="roleAdd" class="Choice-roleAdd-name" value="' +
+				'<th style="text-align: center;"><input name="role_name" type="checkbox"  lay-skin="primary" lay-filter="roleAdd" class="Choice-roleAdd-name" value="' +
 				item.roleId + '"/></th>');
-			html.push('<th>' + item.roleName + '</th>');
-			html.push('<th>' + item.roleDescription + '</th>');
-			html.push('<th class="role_id hiden">' + item.roleId + '</th>');
+			html.push('<th style="text-align: center;">' + item.roleName + '</th>');
+			html.push('<th style="text-align: center;">' + item.roleDescription + '</th>');
+			html.push('<th style="text-align: center;" class="role_id hiden">' + item.roleId + '</th>');
 			html.push('</tr>');
 		});
 	}
 	if (check == 'rolePage') {
 		data.forEach(function(item) {
-			html.push('<tr>');
+			html.push('<tr> style="text-align: center;"');
 			html.push(
 				'<th><input name="role_name" type="checkbox"  lay-skin="primary" lay-filter="rolePage" class="Choice-rolePage-name" value="' +
 				item.roleId + '"/></th>');
-			html.push('<th>' + item.roleName + '</th>');
-			html.push('<th>' + item.roleDescription + '</th>');
-			html.push('<th class="role_id hiden">' + item.roleId + '</th>');
+			html.push('<th style="text-align: center;">' + item.roleName + '</th>');
+			html.push('<th style="text-align: center;">' + item.roleDescription + '</th>');
+			html.push('<th class="role_id hiden" style="text-align: center;">' + item.roleId + '</th>');
 			html.push('</tr>');
 		});
 	}

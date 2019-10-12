@@ -37,18 +37,21 @@ $(function() {
 	$("#Rights").click(function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.user-page').off('click').on('click', function() {
-		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
-	});
-	$('.model-page').off('click').on('click', function() {
+	
+	
+	$('#Model').off('click').on('click', function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click', function() {
+	$('#Role').off('click').on('click', function() {
 		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click', function() {
+	$('#Managements').off('click').on('click', function() {
 		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
+	});
+
 	$('.mail').click(function() {
 		alert('暂无功能，待实现');
 	});
@@ -131,29 +134,29 @@ var info = {
 
 
 
-		Html.push("<tr>");
-		Html.push('<th pane><input name="All" type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"></th>');
-		Html.push('<th>序号</th>');
-		Html.push('<th>员工编号</th>');
-		Html.push('<th>员工姓名</th>');
-		Html.push('<th>操作</th>');
-		Html.push('<th>在职状态</th>');
-		Html.push('<th>性别</th>');
-		Html.push('<th>所在油站</th>');
-		Html.push('<th>岗位/职位</th>');
-		Html.push('<th>联系电话</th>');
-		Html.push('<th>入职日期</th>');
-		Html.push('<th>其他字段 略</th>');
+		Html.push('<tr style="text-align: center;">');
+		Html.push('<th pane style="text-align: center;"><input name="All"  type="checkbox" lay-skin="primary" lay-filter="Staff" value="all"></th>');
+		Html.push('<th style="text-align: center;">序号</th>');
+		Html.push('<th style="text-align: center;">员工编号</th>');
+		Html.push('<th style="text-align: center;">员工姓名</th>');
+		Html.push('<th style="text-align: center;">操作</th>');
+		Html.push('<th style="text-align: center;">在职状态</th>');
+		Html.push('<th style="text-align: center;">性别</th>');
+		Html.push('<th style="text-align: center;">所在油站</th>');
+		Html.push('<th style="text-align: center;">岗位/职位</th>');
+		Html.push('<th style="text-align: center;">联系电话</th>');
+		Html.push('<th style="text-align: center;">入职日期</th>');
+		Html.push('<th style="text-align: center;">其他字段 略</th>');
 		Html.push("</tr>");
 		data.list.forEach(function(item, index) {
-			Html.push('<tr>');
-			Html.push('<td><input name="Staff" type="checkbox"  lay-skin="primary" lay-filter="Staff" value="' + item.empId +
+			Html.push('<tr style="text-align: center;">');
+			Html.push('<td><input name="Staff" type="checkbox" class="Choice" lay-skin="primary" lay-filter="Staff" value="' + item.empId +
 				'"></td>');
 			Html.push('<td class="bh" id="bh">' + (index + 1) + '</td>');
 			Html.push('<td class="empNum">' + item.empNum + '</td>');
 			Html.push('<td class="empName">' + item.empName + '</td>');
 			Html.push(
-				'<td><button type="button" class="layui-btn layui-btn layui-btn layui-btn-primary layui-btn layui-btn-sm AddStaff EmpInfo" ><span>查看</span></button><button type="button" class="layui-btn layui-btn layui-btn layui-btn-primary layui-btn layui-btn-sm AddStaff update"><span>修改</span></button><button type="button" class="layui-btn layui-btn layui-btn layui-btn-primary layui-btn layui-btn-sm AddStaff deleteEmp"><span>删除</span></button></td>'
+				'<td><button type="button"  class="layui-btn-primary layui-btn layui-btn-sm AddStaff EmpInfo" ><span>查看</span></button><button type="button" class="layui-btn layui-btn layui-btn layui-btn-primary layui-btn layui-btn-sm AddStaff update"><span>修改</span></button><button type="button" class="layui-btn layui-btn layui-btn layui-btn-primary layui-btn layui-btn-sm AddStaff deleteEmp"><span>删除</span></button></td>'
 			);
 			if (item.status == 1) {
 				Html.push('<td class="status">异常</td>');
@@ -189,7 +192,15 @@ var info = {
 
 				//得到美化后的DOM对象
 				if (data.value == 'all') {
-
+					console.log('全选');
+					var a = data.elem.checked;
+						if (a == true) {
+							$(".Choice").prop("checked", true);
+							form.render('checkbox');
+						} else {
+							$(".Choice").prop("checked", false);
+							form.render('checkbox');
+						}
 				}
 			});
 		});
@@ -326,7 +337,7 @@ var EmpInfo = function(param) {
 		title: false,
 		closeBtn: 0,
 		skin: 'mylayer',
-		area: ['400px', '650px'],
+		area: ['500px', '650px'],
 		content: 'EmpInfo.html?value=' + empId, //这里content是一个普通的String
 
 	});

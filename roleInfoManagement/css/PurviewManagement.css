@@ -28,7 +28,7 @@
 .rightContent .ContentList .ListTitle{
     background-image: url("../imgs/titleBackground.jpg");
     background-repeat: no-repeat;
-    width: 100%;
+    width: 99%;
     height: 30px;
     border-bottom:1px #dadada solid ;
     color:white;
@@ -65,5 +65,21 @@
   color: #9A9A9A;
 }
 .fontCr{
-	color: red;
+	color: blue;
+}
+
+#Model{
+	margin-top: -2px;
+}
+#Role{
+	margin-top: -10px;
+}
+#Managements{
+	margin-top: -10px;
+}
+#Operators{
+	margin-top: -8px;
+}
+.spacing{
+	margin-left: 70px;
 }

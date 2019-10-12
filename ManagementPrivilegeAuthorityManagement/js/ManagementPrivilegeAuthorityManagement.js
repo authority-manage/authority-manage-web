@@ -252,18 +252,22 @@ $(function() {
 	$("#Rights").click(function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.user-page').off('click').on('click', function() {
-		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
-	});
-	$('.model-page').off('click').on('click', function() {
+	
+	
+	$('#Model').off('click').on('click', function() {
 		window.location.href = '../ModelInfo/ModelInfo.html'
 	});
-	$('.role-page').off('click').on('click', function() {
+	$('#Role').off('click').on('click', function() {
 		window.location.href = '../roleInfoManagement/rolePrivileges.html'
 	});
-	$('.group-page').off('click').on('click', function() {
+	$('#Managements').off('click').on('click', function() {
 		window.location.href = '../ManagementPrivilegeAuthorityManagement/ManagementPrivilegeAuthorityManagement.html'
 	});
+	$('#Operators').off('click').on('click', function() {
+		window.location.href = '../OperatorRightsManagement/OperatorRightsManagement.html'
+	});
+	
+
 	$('#departmentInfoManagement').click(function() {
 		window.location.href = "../DepartmentInfoManagement/departmentMainPage.html";
 	});
@@ -334,6 +338,7 @@ var getALLGroupName = function() {
 				$('.ok').hide();
 				$('.exit').hide();
 				groupId = $(this).find('.groupId').val();
+				$(this).addClass("selected").siblings().removeClass("selected");	// 选中变色
 				$('.font2').text('所选管理组:' + $(this).text());
 				getUser(groupId);
 			});

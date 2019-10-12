@@ -35,7 +35,6 @@
 .line {
 	width: 1305px;
 	margin-left: 20px;
-
 }
 #hd{
 	text-align: center;
@@ -53,7 +52,7 @@
  */
 
 .atitle {
-
+	
 	margin-left: 20px;
 }
 
@@ -71,7 +70,7 @@
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 750px;
-	height: 440px;
+	height: 550px;
 
 
 }
@@ -113,7 +112,7 @@
 .add,
 .update,
 .delete {
-	margin-left: 10px;
+	margin-left: 1300px;
 	margin-top: 5px;
 
 }
@@ -123,16 +122,15 @@
 	margin-left: 10px;
 	width: 200px;
 	height: 667px;
-	border-right: 1px solid #D3D4D3;
+	border-right: 5px solid #D3D4D3;
 	
 
 }
 
 #blue {
-	border: 1px solid #000000;
+	border-bottom: 1px solid #D3D4D3;
 	margin-top: 20px;
 	margin-left: 10px;
-	background-color: #0099CC;
 	height: 40px;
 	width: 1555px;
 }
@@ -154,11 +152,10 @@
 	margin-left: 220px;
 	width: 1345px;
 	height: 665px;
-	border: 1px solid #D3D4D3;
+	
 }
 
 .font2 {
-	margin-top: 20px;
 	margin-left: 20px;
 	font-size: 15px;
 }
@@ -192,4 +189,24 @@
 }
 .userTable td,tr{
 	height: 1px;
+}
+
+#Model{
+	margin-top: -2px;
+}
+#Role{
+	margin-top: -10px;
+}
+#Managements{
+	margin-top: -10px;
+}
+#Operators{
+	margin-top: -8px;
+}
+.spacing{
+	margin-left: 70px;
+}
+/* 给js调用的(用来监听变色) */
+.selected{
+	color: blue;
 }

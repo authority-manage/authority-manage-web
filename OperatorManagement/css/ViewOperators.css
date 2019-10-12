@@ -1,13 +1,19 @@
 
 .reamrk{
+	margin-left: 50px;
 	width: 100px;
 	height: 45px;
 }
+#font0{
+	font-size: 20px;
+	padding: 5px 180px;
+}
 .top {
-	width: 500px;
+	background-color: #669df6;
 	height: 35px;
-	background-color: #40AFFE;
-	border-radius: 25px 25px 0 0;
+	width: 500px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
 .wapper{
 	border-radius: 25px;
@@ -30,11 +36,15 @@
 #tel,
 .relartion_user_id,
 .remark,
-.emp_date {
+.emp_date,
+.located_oil_station,
+.number,
+.post,
+.telephone{
 	position: absolute;
 	width: 200px;
 	height: 25px;
-	left: 180px;
+	left: 220px;
 	
 } 
 .c_time_wapper,
@@ -47,11 +57,15 @@
 .select_radio,
 .emp_name_wapper,
 .emp_num_wapper,
-.remark_wapper {
+.remark_wapper,
+.oil_station,
+.empNum,
+.job,
+.tel{
 	top: 50px;
 	width: 400px;
 	height: 30px;
-	margin-top: 25px;
+	margin-top: 17px;
 	margin-left: 100px;
 }
 .box{
@@ -59,22 +73,22 @@
 	height: 600px;
 	position: absolute;
 	top:50%;
-	left: 50%;
+	/* left: 50%; */
 	margin-top: -300px;
-	margin-left: -250px;
+	/* margin-left: -250px; */
 }
 .back,
 .ok {
 	height: 30px;
 	width: 100px;
-	border-radius: 5px;
-	border: none;
-	background-color: #1E9FFF;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
 }
 .btn_wapper{	
 	top: 50px;
 	width: 100px;
 	height: 30px;
 	margin-top: 25px;
-	margin-left:350px;
+	margin-left: 350px;
 }

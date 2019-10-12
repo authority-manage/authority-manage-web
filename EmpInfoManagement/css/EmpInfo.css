@@ -1,27 +1,29 @@
 #cTimeText {
+	margin-left: 50px;
 	position: absolute;
-	margin-top: 350px;
+	margin-top: 380px;
 	font-size: 15px;
 }
 
 #mTimeText {
 	position: absolute;
-	margin-top: 400px;
+	margin-top: 335px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #mTime {
 	position: absolute;
-	margin-top: 400px;
-	margin-left: 150px;
+	margin-top: 375px;
+	margin-left: 200px;
 	width: 200px;
 	height: 30px;
 }
 
 #cTime {
 	position: absolute;
-	margin-top: 350px;
-	margin-left: 150px;
+	margin-top: 330px;
+	margin-left: 200px;
 	width: 200px;
 	height: 30px;
 
@@ -31,19 +33,20 @@
 	position: absolute;
 	margin-top: 450px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #isDel {
 	position: absolute;
 	margin-top: 450px;
-	margin-left: 150px;
+	margin-left: 200px;
 	width: 200px;
 	height: 30px;
 }
 
 #text {
 	font-size: 20px;
-
+	padding: 5px 180px;
 }
 
 #half {
@@ -52,6 +55,7 @@
 }
 
 #numText {
+	margin-left: 50px;
 	position: absolute;
 	margin-top: 20px;
 	font-size: 15px;
@@ -60,7 +64,7 @@
 #empNum {
 	position: absolute;
 	margin-top: 50px;
-	margin-left: 150px;
+	margin-left: 200px;
 	margin-top: 10px;
 	width: 200px;
 	height: 30px;
@@ -70,11 +74,13 @@
 	position: absolute;
 	margin-top: 60px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #departmentIdText {
 	position: absolute;
 	margin-top: 155px;
+	margin-left: 50px;
 	font-size: 15px;
 
 }
@@ -83,6 +89,7 @@
 	position: absolute;
 	margin-top: 200px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #empName {
@@ -90,27 +97,29 @@
 	height: 30px;
 	position: absolute;
 	margin-top: 50px;
-	margin-left: 150px;
+	margin-left: 200px;
 
 }
 
 #job {
 	width: 200px;
 	height: 30px;
+	margin-left: 200px;
 
 }
 
 #tel {
 	width: 200px;
 	height: 30px;
-
+	margin-left: 200px;
 }
 
 
 #status1 {
 	position: absolute;
 	margin-top: 80px;
-	margin-left: 180px;
+	margin-left: 200px;
+
 }
 
 #fontZZ {
@@ -120,6 +129,7 @@
 
 #fontYC {
 	margin-top: -31px;
+	
 	margin-left: 30px;
 }
 
@@ -136,25 +146,25 @@
 #status2 {
 	position: absolute;
 	margin-top: 80px;
-	margin-left: 250px;
+	margin-left: 280px;
 }
 
 #sex1 {
 	position: absolute;
 	margin-top: 110px;
-	margin-left: 180px;
+	margin-left: 200px;
 }
 
 #sex2 {
 	position: absolute;
 	margin-top: 110px;
-	margin-left: 250px;
+	margin-left: 280px;
 }
 
 #departmentId {
 	position: absolute;
-	margin-left: 150px;
-	margin-top: 150px;
+	margin-left: 200px;
+	margin-top: 155px;
 	width: 200px;
 	height: 30px;
 }
@@ -162,13 +172,14 @@
 
 #job {
 	position: absolute;
-	margin-top: 190px;
-	margin-left: 150px;
+	margin-top: 195px;
+	margin-left: 200px;
 }
 
 #empDateText {
 	position: absolute;
-	margin-top: 300px;
+	margin-top: 290px;
+	margin-left: 50px;
 	font-size: 15px;
 }
 
@@ -176,38 +187,39 @@
 	position: absolute;
 	margin-top: 245px;
 	font-size: 15px;
-
+margin-left: 50px;
 }
 
 #tel {
 	position: absolute;
 	margin-top: 240px;
-	margin-left: 150px;
+	margin-left: 200px;
 }
 
 #empDate {
 	position: absolute;
-	margin-top: 295px;
-	margin-left: 150px;
+	margin-top: 285px;
+	margin-left: 200px;
 	width: 200px;
 	height: 30px;
 }
 
 #remarkText {
 	position: absolute;
-	margin-top: 510px;
+	margin-top: 420px;
 	font-size: 15px;
+	margin-left: 50px;
 }
 
 #remark {
 	position: absolute;
-	margin-left: 150px;
-	margin-top: 510px;
+	margin-left: 200px;
+	margin-top: 420px;
 	width: 200px;
 	height: 50px;
 }
 
-#add {
+/* #add {
 	width: 90px;
 	height: 32px;
 	position: absolute;
@@ -216,18 +228,30 @@
 	border: #f6fffe solid 0px;
 	background-color: #669df6;
 	color: #FFFFFF;
-}
+} */
 
-#back {
+#exit {
 	width: 90px;
+	
 	height: 30px;
 	position: absolute;
-	margin-top: -28px;
+	margin-top: 520px;
 	margin-left: 260px;
 	border: #f6fffe solid 0px;
 	background-color: #669df6;
 	color: #FFFFFF;
 }
+#back {
+	width: 90px;
+	height: 30px;
+	position: absolute;
+	margin-top: 520px;
+	margin-left: 100px;
+	border: #f6fffe solid 0px;
+	background-color: #669df6;
+	color: #FFFFFF;
+}
+
 
 
 
@@ -252,12 +276,12 @@ textarea {
 }
 
 #all {
-	width: 400px;
+	width: 500px;
 	height: 650px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -325px 0 0 -200px;
+	margin: -325px 0 0 -250px;
 	border-radius: 35px;
 	border-color: #dadada;
 }
@@ -265,7 +289,7 @@ textarea {
 #blue {
 	background-color: #669df6;
 	height: 35px;
-	width: 400px;
+	width: 500px;
 	border-top-left-radius: 20em;
 	border-top-right-radius: 20em;
 
